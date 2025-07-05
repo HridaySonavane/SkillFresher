@@ -18,6 +18,7 @@ export interface Database {
           email_verified: boolean
           email_verified_at: string | null
           preferences: Json
+          role: 'user' | 'admin' | 'moderator' | 'premium_user'
           created_at: string
           updated_at: string
         }
@@ -35,6 +36,7 @@ export interface Database {
           email_verified?: boolean
           email_verified_at?: string | null
           preferences?: Json
+          role?: 'user' | 'admin' | 'moderator' | 'premium_user'
           created_at?: string
           updated_at?: string
         }
@@ -52,8 +54,35 @@ export interface Database {
           email_verified?: boolean
           email_verified_at?: string | null
           preferences?: Json
+          role?: 'user' | 'admin' | 'moderator' | 'premium_user'
           created_at?: string
           updated_at?: string
+        }
+      }
+      role_permissions: {
+        Row: {
+          id: string
+          role: 'user' | 'admin' | 'moderator' | 'premium_user'
+          permission: string
+          resource: string
+          action: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          role: 'user' | 'admin' | 'moderator' | 'premium_user'
+          permission: string
+          resource: string
+          action: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          role?: 'user' | 'admin' | 'moderator' | 'premium_user'
+          permission?: string
+          resource?: string
+          action?: string
+          created_at?: string
         }
       }
       resumes: {
@@ -203,7 +232,17 @@ export interface Database {
       }
     }
     Views: {
-      [_ in never]: never
+      user_permissions_view: {
+        Row: {
+          user_id: string
+          email: string
+          full_name: string | null
+          role: 'user' | 'admin' | 'moderator' | 'premium_user'
+          permission: string
+          resource: string
+          action: string
+        }
+      }
     }
     Functions: {
       check_usage_limit: {
@@ -216,6 +255,21 @@ export interface Database {
       reset_monthly_usage: {
         Args: Record<PropertyKey, never>
         Returns: undefined
+      }
+      check_user_permission: {
+        Args: {
+          user_uuid: string
+          required_permission: string
+          resource_name: string
+          action_name: string
+        }
+        Returns: boolean
+      }
+      get_user_role: {
+        Args: {
+          user_uuid: string
+        }
+        Returns: 'user' | 'admin' | 'moderator' | 'premium_user'
       }
     }
     Enums: {

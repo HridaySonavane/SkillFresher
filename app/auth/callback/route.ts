@@ -9,8 +9,22 @@ export async function GET(request: NextRequest) {
   if (code) {
     const supabase = createRouteHandlerClient({ cookies })
     await supabase.auth.exchangeCodeForSession(code)
+    // Fetch the session to get the user ID
+    const { data: { session } } = await supabase.auth.getSession()
+    
+    // If the session has a user ID, get their role and redirect to their dashboard
+    if (session?.user?.id) {
+      // Get user profile with role from database
+      const { data: userProfile } = await supabase
+        .from('user_profiles')
+        .select('role')
+        .eq('id', session.user.id)
+        .single();
+      
+      return NextResponse.redirect(`${requestUrl.origin}/dashboard/${session.user.id}?role=${userProfile?.role || 'user'}`)
+    }
   }
 
-  // Redirect to dashboard after successful verification
+  // Fallback: redirect to generic dashboard or sign in
   return NextResponse.redirect(`${requestUrl.origin}/dashboard`)
 }

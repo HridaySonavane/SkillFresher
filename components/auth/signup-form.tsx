@@ -21,6 +21,7 @@ import {
 	CheckCircle,
 } from "lucide-react";
 import { authService } from "@/lib/supabase/auth";
+import { supabase } from "@/lib/supabase/auth";
 import { OTPForm } from "./otp-form";
 import Link from "next/link";
 
@@ -33,6 +34,7 @@ export function SignUpForm() {
 		confirmPassword: "",
 		agreeToTerms: false,
 		subscribeNewsletter: true,
+		role: "user" as "user" | "admin" | "moderator" | "premium_user",
 	});
 	const [showPassword, setShowPassword] = useState(false);
 	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -93,9 +95,36 @@ export function SignUpForm() {
 		setError("");
 
 		try {
+			// Check if there's an existing session and clear it if user doesn't exist
+			const {
+				data: { session },
+			} = await supabase.auth.getSession();
+			if (session?.user) {
+				try {
+					// Check if the user exists in the database
+					const { data: user, error } = await supabase
+						.from("user_profiles") // Replace with your actual users table name
+						.select("id")
+						.eq("id", session.user.id)
+						.single();
+
+					// If user doesn't exist in database, clear the session
+					if (error || !user) {
+						await supabase.auth.signOut();
+						console.log("Cleared invalid session for deleted user");
+					}
+				} catch (error) {
+					// If there's an error checking the user, clear the session
+					await supabase.auth.signOut();
+					console.log("Cleared session due to error checking user");
+				}
+			}
+
+			// Proceed with signup
 			await authService.signUp(formData.email, formData.password, {
 				full_name: formData.fullName,
 				subscribe_newsletter: formData.subscribeNewsletter,
+				role: formData.role,
 			});
 			setStep("otp");
 		} catch (err: any) {
@@ -284,6 +313,30 @@ export function SignUpForm() {
 									required
 								/>
 							</div>
+						</div>
+
+						<div className="space-y-2">
+							<Label htmlFor="role">Account Type</Label>
+							<select
+								id="role"
+								value={formData.role}
+								onChange={(e) =>
+									setFormData((prev) => ({
+										...prev,
+										role: e.target.value as "user" | "admin" | "moderator" | "premium_user",
+									}))
+								}
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+								required
+							>
+								<option value="user">Regular User</option>
+								<option value="premium_user">Premium User</option>
+								<option value="moderator">Moderator</option>
+								<option value="admin">Administrator</option>
+							</select>
+							<p className="text-xs text-gray-500">
+								Choose your account type. Premium users get access to advanced features.
+							</p>
 						</div>
 
 						<div className="space-y-2">
