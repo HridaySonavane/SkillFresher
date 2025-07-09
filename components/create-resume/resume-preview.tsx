@@ -590,12 +590,24 @@ function AcademicResearcherTemplate({ data }: { data: ResumeData }) {
 					{data.personalInfo.name || "Your Name"}
 				</h1>
 				<p className="text-lg text-gray-600 mb-3">Research Scientist</p>
-				<div className="flex justify-center gap-6 text-sm text-gray-500">
+				<div className="flex justify-center gap-6 text-sm text-gray-500 mb-2">
 					<span>
 						{data.personalInfo.email || "email@example.com"}
 					</span>
 					<span>{data.personalInfo.phone || "Phone"}</span>
 					<span>{data.personalInfo.location || "Location"}</span>
+				</div>
+				<div className="flex justify-center gap-4 text-sm">
+					<span
+						className={`${data.personalInfo.linkedin ? " text-blue-600" : "text-gray-500"}`}
+					>
+						{data.personalInfo.linkedin || "LinkedIn"}
+					</span>
+					<span
+						className={`${data.personalInfo.website ? " text-blue-600" : "text-gray-500"}`}
+					>
+						{data.personalInfo.website || "Website"}
+					</span>
 				</div>
 			</div>
 
@@ -1000,7 +1012,7 @@ function BoldSidebarTemplate({ data }: { data: ResumeData }) {
 									</span>
 									<span className="text-xs text-blue-900">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<div className="text-blue-700 text-sm mb-1">

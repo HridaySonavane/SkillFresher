@@ -1,5 +1,6 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -62,6 +63,15 @@ export function TemplateSelection({
 			.then((res) => res.json())
 			.then(setTemplates);
 	}, []);
+
+	const loadMoreTemplates = () => {
+		// Fetch more templates from the API
+		fetch("/api/templates?offset=" + templates.length)
+			.then((res) => res.json())
+			.then((newTemplates) => {
+				setTemplates((prev) => [...prev, ...newTemplates]);
+			});
+	};
 
 	const filteredTemplates = templates
 		.filter((template) => {
@@ -260,7 +270,7 @@ export function TemplateSelection({
 
 				{/* Templates Grid/List */}
 				{viewMode === "grid" ? (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 						{filteredTemplates.map((template) => (
 							<Card
 								key={template.id}
@@ -277,12 +287,17 @@ export function TemplateSelection({
 									{/* Template Preview */}
 									<div className="relative aspect-[3/4] overflow-hidden rounded-t-lg bg-gradient-to-br from-gray-100 to-gray-200">
 										<div className="w-full h-full flex items-center justify-center">
-											<div className="text-center">
+											{/* <div className="text-center">
 												<div className="w-16 h-20 bg-white rounded shadow-sm mx-auto mb-2"></div>
 												<span className="text-gray-500 text-xs">
 													Template Preview
 												</span>
-											</div>
+											</div> */}
+											<Image
+												src={template.thumbnail_url}
+												alt={"Academic Researcher"}
+												fill
+											/>
 										</div>
 
 										{/* Overlay */}
@@ -520,6 +535,18 @@ export function TemplateSelection({
 						</Button>
 					</div>
 				)}
+
+				{/* Load More */}
+				<div className="text-center pt-8">
+					<Button
+						variant="outline"
+						size="lg"
+						className="bg-transparent"
+						onClick={loadMoreTemplates}
+					>
+						Load More Templates
+					</Button>
+				</div>
 
 				{/* Quick Actions */}
 				<div className="bg-gray-50 rounded-lg p-6">

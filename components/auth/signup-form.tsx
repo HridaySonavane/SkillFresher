@@ -121,11 +121,33 @@ export function SignUpForm() {
 			}
 
 			// Proceed with signup
-			await authService.signUp(formData.email, formData.password, {
-				full_name: formData.fullName,
-				subscribe_newsletter: formData.subscribeNewsletter,
-				role: formData.role,
-			});
+			const { user } = await authService.signUp(
+				formData.email,
+				formData.password,
+				{
+					full_name: formData.fullName,
+					subscribe_newsletter: formData.subscribeNewsletter,
+					role: formData.role,
+				}
+			);
+
+			// Insert user profile row after successful sign up
+			if (user) {
+				const { data: existingProfile } = await supabase
+					.from("user_profiles")
+					.select("id")
+					.eq("id", user.id)
+					.single();
+				if (!existingProfile) {
+					await supabase.from("user_profiles").insert({
+						id: user.id,
+						email: formData.email,
+						full_name: formData.fullName,
+						role: formData.role,
+					});
+				}
+			}
+
 			setStep("otp");
 		} catch (err: any) {
 			setError(err.message || "Failed to create account");
@@ -323,19 +345,26 @@ export function SignUpForm() {
 								onChange={(e) =>
 									setFormData((prev) => ({
 										...prev,
-										role: e.target.value as "user" | "admin" | "moderator" | "premium_user",
+										role: e.target.value as
+											| "user"
+											| "admin"
+											| "moderator"
+											| "premium_user",
 									}))
 								}
 								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 								required
 							>
 								<option value="user">Regular User</option>
-								<option value="premium_user">Premium User</option>
+								<option value="premium_user">
+									Premium User
+								</option>
 								<option value="moderator">Moderator</option>
 								<option value="admin">Administrator</option>
 							</select>
 							<p className="text-xs text-gray-500">
-								Choose your account type. Premium users get access to advanced features.
+								Choose your account type. Premium users get
+								access to advanced features.
 							</p>
 						</div>
 

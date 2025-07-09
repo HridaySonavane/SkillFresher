@@ -2,6 +2,7 @@ import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { RoleAuthService } from "./role-auth";
+import { supabase } from "../supabase/auth";
 
 export type RouteConfig = {
   path: string;
@@ -93,7 +94,7 @@ export class RoleMiddleware {
 
     // Check if user has required role
     if (routeConfig.roles) {
-      const userRole = await RoleAuthService.getUserRole(session.user.id);
+      const userRole = await RoleAuthService.getUserRole(supabase, session.user.id);
       if (!userRole || !routeConfig.roles.includes(userRole)) {
         return NextResponse.redirect(new URL("/auth/signin?error=insufficient_permissions", req.url));
       }
@@ -153,7 +154,7 @@ export async function canAccessRoute(
 
   // Check role requirements
   if (routeConfig.roles) {
-    const userRole = await RoleAuthService.getUserRole(userId);
+    const userRole = await RoleAuthService.getUserRole(supabase, userId);
     if (!userRole || !routeConfig.roles.includes(userRole)) {
       return false;
     }
@@ -180,7 +181,7 @@ export async function canAccessRoute(
 
 // Helper function to get accessible routes for a user
 export async function getAccessibleRoutes(userId: string): Promise<string[]> {
-  const userRole = await RoleAuthService.getUserRole(userId);
+  const userRole = await RoleAuthService.getUserRole(supabase,userId);
   if (!userRole) return [];
 
   const accessibleRoutes: string[] = [];

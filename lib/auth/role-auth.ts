@@ -11,9 +11,10 @@ export interface Permission {
 
 export class RoleAuthService {
   // Get user's role
-  static async getUserRole(userId: string): Promise<UserRole | null> {
+  static async getUserRole(supabaseClient, userId: string) {
     try {
-      const { data, error } = await supabase
+      console.log("Getting user role for user:", userId);
+      const { data, error } = await supabaseClient
         .from('user_profiles')
         .select('role')
         .eq('id', userId)
@@ -26,7 +27,7 @@ export class RoleAuthService {
 
       return data.role;
     } catch (error) {
-      console.error('Error getting user role:', error);
+      console.error('Error getting user role after try catch:', error);
       return null;
     }
   }

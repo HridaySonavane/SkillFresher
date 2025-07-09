@@ -6,7 +6,7 @@ export async function GET(request: Request) {
   const offset = parseInt(searchParams.get("offset") || "0", 10);
   const limit = parseInt(searchParams.get("limit") || "6", 10);
 
-  if (!offset || !limit || limit <= 0) {
+  if (limit <= 0) {
     const { data, error } = await supabase
     .from("templates")
     .select("*")

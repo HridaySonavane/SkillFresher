@@ -16,6 +16,7 @@ export async function middleware(req: NextRequest) {
         .eq('id', session?.user.id)
         .single()
 
+
   // If accessing auth pages with session, verify user exists before redirecting
   const authRoutes = ["/auth/signin", "/auth/signup"]
   const isAuthRoute = authRoutes.some((route) => req.nextUrl.pathname.startsWith(route))
@@ -31,6 +32,9 @@ export async function middleware(req: NextRequest) {
 
       // If user exists, redirect to dashboard
       if (userProfile && !error) {
+        if(userProfile.role === 'admin'){
+          return NextResponse.redirect(new URL(`/admin`, req.url))
+        }
         return NextResponse.redirect(new URL(`/dashboard/${session.user.id}?role=${userProfile.role}`, req.url))
       } else {
         // If user doesn't exist, clear the session and allow access to auth pages

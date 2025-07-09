@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
 import { Loader2, Eye, EyeOff, Mail, Lock, Github } from "lucide-react";
-import { authService } from "@/lib/supabase/auth";
+import { supabase, authService } from "@/lib/supabase/auth";
 import Link from "next/link";
 
 export function SignInForm() {
@@ -34,12 +34,41 @@ export function SignInForm() {
 		setError("");
 
 		try {
-			const { user } = await authService.signIn(
-				formData.email,
-				formData.password
-			);
+			await authService.signIn(formData.email, formData.password);
 
-			window.location.href = `/dashboard/${user.id}?${user.role}`;
+			// Poll for session hydration (up to 2 seconds)
+			let sessionUser = null;
+			for (let i = 0; i < 20; i++) {
+				const { data: { user: currentUser } } = await supabase.auth.getUser();
+				if (currentUser) {
+					sessionUser = currentUser;
+					break;
+				}
+				await new Promise(res => setTimeout(res, 100));
+			}
+
+			if (!sessionUser) {
+				setError("Session not established. Please try again.");
+				return;
+			}
+
+			// Fetch the user's profile to get the real role
+			const { data: profile, error } = await supabase
+				.from("user_profiles")
+				.select("role")
+				.eq("id", sessionUser.id)
+				.single();
+
+			if (error || !profile) {
+				setError("Could not fetch user profile.");
+				return;
+			}
+
+			if (profile.role === "admin") {
+				window.location.href = "/admin";
+			} else {
+				window.location.href = `/dashboard/${sessionUser.id}?role=${profile.role}`;
+			}
 		} catch (err: any) {
 			setError(err.message || "Failed to sign in");
 		} finally {

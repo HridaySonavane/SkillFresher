@@ -20,8 +20,12 @@ export async function GET(request: NextRequest) {
         .select('role')
         .eq('id', session.user.id)
         .single();
+
+      if(userProfile?.role === 'admin'){
+        return NextResponse.redirect(`${requestUrl.origin}/admin`)
+      }
       
-      return NextResponse.redirect(`${requestUrl.origin}/dashboard/${session.user.id}?role=${userProfile?.role || 'user'}`)
+      return NextResponse.redirect(`${requestUrl.origin}/dashboard`)
     }
   }
 
