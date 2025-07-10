@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function TemplateHeader() {
 	return (
-		<div className="bg-white border-b border-gray-200">
+		<div className="bg-white dark:bg-neutral-900 border-b border-gray-200 dark:border-neutral-700">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 				<div className="flex items-center gap-4 mb-6">
 					<Button variant="ghost" size="sm" asChild>
@@ -22,23 +22,23 @@ export function TemplateHeader() {
 					<div className="flex items-center justify-center gap-2 mb-4">
 						<Badge
 							variant="secondary"
-							className="bg-blue-100 text-blue-800"
+							className="bg-blue-100 dark:bg-blue-300 text-blue-800 dark:text-blue-950"
 						>
 							50+ Templates
 						</Badge>
 						<Badge
 							variant="secondary"
-							className="bg-green-100 text-green-800"
+							className="bg-green-100 dark:bg-green-300 text-green-800 dark:text-green-950"
 						>
 							ATS-Optimized
 						</Badge>
 					</div>
 
-					<h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+					<h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-200 mb-4">
 						Professional Resume Templates
 					</h1>
 
-					<p className="text-xl text-gray-600 mb-8">
+					<p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
 						Choose from our collection of professionally designed,
 						ATS-friendly resume templates. Each template is crafted
 						to help you stand out and land your dream job.
@@ -53,7 +53,7 @@ export function TemplateHeader() {
 						</Button>
 					</div>
 
-					<div className="flex items-center justify-center gap-8 mt-8 text-sm text-gray-500">
+					<div className="flex items-center justify-center gap-8 mt-8 text-sm text-gray-500 dark:text-gray-400">
 						<div className="flex items-center gap-2">
 							<Download className="w-4 h-4" />
 							<span>10K+ Downloads</span>

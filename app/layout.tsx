@@ -2,6 +2,9 @@ import type React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/providers/auth-provider";
+import { ClientOnly } from "@/components/providers/clientOnly";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/themeChanger";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +20,23 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body className={inter.className}>
-				<AuthProvider>{children}</AuthProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					{/* <ClientOnly> */}
+					<AuthProvider>
+						<div className="fixed z-[100] top-4 left-4">
+							<ModeToggle />
+						</div>
+						{children}
+					</AuthProvider>
+					{/* </ClientOnly> */}
+				</ThemeProvider>
 			</body>
 		</html>
 	);

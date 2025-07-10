@@ -50,14 +50,14 @@ export function TemplateGallery() {
 	};
 
 	return (
-		<div className="space-y-6">
+		<div className="space-y-6 dark:bg-neutral-900">
 			{/* Header */}
 			<div className="flex items-center justify-between">
 				<div>
-					<h2 className="text-2xl font-bold text-gray-900">
+					<h2 className="text-2xl font-bold text-gray-900 dark:text-gray-200">
 						All Templates
 					</h2>
-					<p className="text-gray-600">
+					<p className="text-gray-600 dark:text-gray-400">
 						{templates.length} professional templates available
 					</p>
 				</div>
@@ -91,13 +91,16 @@ export function TemplateGallery() {
 				{templates.map((template) => (
 					<Card
 						key={template.id}
-						className="group hover:shadow-lg transition-shadow duration-300"
+						className="group hover:shadow-lg transition-shadow duration-300 py-0"
 					>
 						<CardContent className="p-0 flex flex-col h-full">
 							{/* Template Preview */}
 							<div className="relative aspect-[3/4] overflow-hidden rounded-t-lg bg-gray-100">
 								<Image
-									src={template.preview || "/placeholder.svg"}
+									src={
+										template.thumbnail_url ||
+										"/placeholder.svg"
+									}
 									alt={template.name}
 									fill
 									className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -120,7 +123,7 @@ export function TemplateGallery() {
 									</Button> */}
 									<Dialog>
 										<DialogTrigger className="flex items-center justify-center w-full h-full bg-transparent">
-											<div className="bg-[#f5f5f5] py-2 px-2.5 rounded-md flex items-center border border-gray-400 border-b-2 shadow-xs cursor-pointer hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50">
+											<div className="bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 h-8 w-fit flex items-center rounded-md gap-1.5 px-3 has-[>svg]:px-2.5">
 												<Eye className="w-5 h-5 mr-1" />
 												Preview
 											</div>
@@ -134,13 +137,16 @@ export function TemplateGallery() {
 													{template.description}
 												</DialogDescription>
 											</DialogHeader>
-											<div className="relative aspect-[8/9] overflow-hidden rounded-lg bg-gray-100">
-												{template.preview && (
+											<div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-gray-100">
+												{template.preview_image_url && (
 													<Image
-														src={"/public/image"}
-														alt="Template Preview"
+														src={
+															template.preview_image_url ||
+															"/placeholder.svg"
+														}
+														alt={template.name}
 														fill
-														className="border border-red-500"
+														className="object-cover transition-transform duration-300"
 													/>
 												)}
 											</div>
@@ -173,18 +179,18 @@ export function TemplateGallery() {
 							</div>
 
 							{/* Template Info */}
-							<div className="p-4 space-y-3">
+							<div className="p-4 space-y-3 dark:bg-gradient-to-b from-transparent/70 backdrop-blur-2xl">
 								<div>
-									<h3 className="font-semibold text-lg text-gray-900">
+									<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-200">
 										{template.name}
 									</h3>
-									<p className="text-sm text-gray-600 mt-1 truncate">
+									<p className="text-sm text-gray-600 dark:text-gray-400 mt-1 truncate">
 										{template.description}
 									</p>
 								</div>
 
 								{/* Stats */}
-								<div className="flex items-center justify-between text-sm text-gray-500">
+								<div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-300">
 									<div className="flex items-center gap-4">
 										<div className="flex items-center gap-1">
 											<Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -208,17 +214,6 @@ export function TemplateGallery() {
 
 								{/* Actions */}
 								<div className="flex gap-2 pt-2">
-									{/* <Button
-										variant="outline"
-										size="sm"
-										className="flex-1 bg-transparent"
-										onClick={() =>
-											handlePreview(template.id)
-										}
-									>
-										<Eye className="w-4 h-4 mr-1" />
-										Preview
-									</Button> */}
 									<Button
 										size="sm"
 										className="flex-1 cursor-pointer"

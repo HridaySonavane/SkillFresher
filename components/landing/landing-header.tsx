@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { ModeToggle } from "../themeChanger";
 
 export function LandingHeader() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ export function LandingHeader() {
 	return (
 		<>
 			{/* Donation Banner */}
-			<div className="bg-gray-900 text-white text-sm py-2 px-4 text-center">
+			<div className="bg-gray-900 dark:bg-neutral-900/70 text-white text-sm py-2 px-4 text-center">
 				<div className="flex items-center justify-center gap-2">
 					<Heart className="w-4 h-4 text-red-400" />
 					<span>
@@ -22,7 +23,7 @@ export function LandingHeader() {
 			</div>
 
 			{/* Main Header */}
-			<header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
+			<header className="bg-white/80 dark:bg-neutral-900/70 backdrop-blur-sm border-b border-gray-200 dark:border-none dark:drop-shadow-2xl/10 dark:drop-shadow-neutral-700 sticky top-0 z-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex justify-between items-center h-16">
 						{/* Logo */}
@@ -35,43 +36,45 @@ export function LandingHeader() {
 								</div>
 							</div>
 							<div className="ml-3">
-								<h1 className="text-xl font-bold text-gray-900">
+								<h1 className="text-xl font-bold text-gray-900 dark:text-gray-200">
 									SkillFresher
 								</h1>
-								<p className="text-xs text-gray-500">
+								<p className="text-xs text-gray-500 dark:text-gray-400">
 									AI-Powered Resume Builder
 								</p>
 							</div>
 						</div>
 
 						{/* Desktop Navigation */}
-						<nav className="hidden md:flex space-x-8">
+						<nav className="hidden md:flex space-x-8 ">
 							<a
 								href="#features"
-								className="text-gray-700 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
 							>
 								Features
 							</a>
 							<a
 								href="./templete"
-								className="text-gray-700 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
 							>
 								Templates
 							</a>
 							<a
 								href="./pricing"
-								className="text-gray-700 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
 							>
 								Pricing
 							</a>
 							<a
 								href="#about"
-								className="text-gray-700 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
 							>
 								About
 							</a>
 						</nav>
 
+						{/* Theme Toggle Button */}
+						{/* <ModeToggle /> */}
 						{/* Desktop Actions */}
 						<div className="hidden md:flex items-center space-x-4">
 							<Button variant="ghost" asChild>

@@ -95,14 +95,14 @@ export function PricingPlansWithCheckout() {
 	};
 
 	return (
-		<div className="py-16">
+		<div className="py-16 dark:bg-neutral-900">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="text-center mb-12">
-					<h2 className="text-3xl font-bold text-gray-900 mb-4">
+					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
 						Choose the Perfect Plan for Your Career
 					</h2>
-					<p className="text-lg text-gray-600 mb-8">
+					<p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
 						Start building professional resumes that get you hired
 					</p>
 
@@ -111,8 +111,8 @@ export function PricingPlansWithCheckout() {
 						<span
 							className={
 								!isYearly
-									? "font-semibold text-gray-900"
-									: "text-gray-500"
+									? "font-semibold text-gray-900 dark:text-gray-200"
+									: "text-gray-500 dark:text-gray-400"
 							}
 						>
 							Monthly
@@ -124,14 +124,14 @@ export function PricingPlansWithCheckout() {
 						<span
 							className={
 								isYearly
-									? "font-semibold text-gray-900"
-									: "text-gray-500"
+									? "font-semibold text-gray-900 dark:text-gray-200"
+									: "text-gray-500 dark:text-gray-400"
 							}
 						>
 							Yearly
 							<Badge
 								variant="secondary"
-								className="ml-2 bg-green-100 text-green-800"
+								className="ml-2 bg-green-100 text-green-800 dark:bg-green-300 dark:text-green-950"
 							>
 								Save up to 17%
 							</Badge>
@@ -168,7 +168,7 @@ export function PricingPlansWithCheckout() {
 								</CardDescription>
 
 								<div className="mt-6">
-									<div className="text-4xl font-bold text-gray-900">
+									<div className="text-4xl font-bold text-gray-900 dark:text-gray-200">
 										$
 										{isYearly
 											? plan.yearlyPrice
@@ -204,8 +204,8 @@ export function PricingPlansWithCheckout() {
 									<Button
 										className={`w-full ${
 											plan.popular
-												? "bg-blue-600 hover:bg-blue-700"
-												: "bg-white text-black hover:bg-gray-800 hover:text-white"
+												? "bg-blue-600 text-white hover:bg-blue-700"
+												: "bg-white text-black hover:bg-gray-800 dark:hover:bg-gray-300 hover:text-white dark:hover:text-black"
 										}`}
 										asChild
 									>
@@ -223,7 +223,7 @@ export function PricingPlansWithCheckout() {
 								)}
 
 								<div className="space-y-3">
-									<h4 className="font-semibold text-sm text-gray-900">
+									<h4 className="font-semibold text-sm text-gray-900 dark:text-gray-200">
 										What's included:
 									</h4>
 									{plan.features.map((feature, index) => (
@@ -231,8 +231,8 @@ export function PricingPlansWithCheckout() {
 											key={index}
 											className="flex items-start gap-3 text-sm"
 										>
-											<Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-											<span className="text-gray-700">
+											<Check className="w-4 h-4 text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" />
+											<span className="text-gray-700 dark:text-gray-500">
 												{feature}
 											</span>
 										</div>
@@ -240,8 +240,8 @@ export function PricingPlansWithCheckout() {
 								</div>
 
 								{plan.limitations.length > 0 && (
-									<div className="space-y-2 pt-4 border-t border-gray-100">
-										<h4 className="font-semibold text-sm text-gray-500">
+									<div className="space-y-2 pt-4 border-t border-gray-100 dark:border-neutral-700">
+										<h4 className="font-semibold text-sm text-gray-500 dark:text-gray-400">
 											Limitations:
 										</h4>
 										{plan.limitations.map(
@@ -268,17 +268,17 @@ export function PricingPlansWithCheckout() {
 
 				{/* Trust Indicators */}
 				<div className="mt-16 text-center">
-					<div className="flex items-center justify-center gap-8 text-sm text-gray-600">
+					<div className="flex items-center justify-center gap-8 text-sm text-gray-600 dark:text-gray-500">
 						<div className="flex items-center gap-2">
-							<div className="w-2 h-2 bg-green-500 rounded-full"></div>
+							<div className="w-2 h-2 bg-green-500 dark:text-green-400 rounded-full"></div>
 							<span>30-day money-back guarantee</span>
 						</div>
 						<div className="flex items-center gap-2">
-							<div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+							<div className="w-2 h-2 bg-blue-500 dark:text-blue-400 rounded-full"></div>
 							<span>Cancel anytime</span>
 						</div>
 						<div className="flex items-center gap-2">
-							<div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+							<div className="w-2 h-2 bg-purple-500 dark:text-purple-400 rounded-full"></div>
 							<span>Secure payment</span>
 						</div>
 					</div>
