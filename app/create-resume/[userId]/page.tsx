@@ -19,7 +19,7 @@ export default function CreateResumePage() {
 	);
 	const [resumeData, setResumeData] = useState<ResumeData>({
 		personalInfo: {
-			name: "Hriday Sonawane",
+			name: "",
 			email: "",
 			phone: "",
 			location: "",

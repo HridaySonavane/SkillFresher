@@ -23,6 +23,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Loader2, Users, Shield, Settings, Activity } from "lucide-react";
 import { RoleAuthService, type UserRole } from "@/lib/auth/role-auth";
 import { supabase } from "@/lib/supabase/auth";
+import { DashboardHeader } from "../dashboard/dashboard-header";
 
 interface User {
 	id: string;
@@ -148,12 +149,14 @@ export function AdminDashboard() {
 
 	return (
 		<div className="space-y-6">
-			<div className="flex items-center justify-between">
+			{/* <div className="flex items-center justify-between">
 				<h1 className="text-3xl font-bold">Admin Dashboard</h1>
 				<Button onClick={loadUsers} variant="outline">
 					Refresh
 				</Button>
-			</div>
+			</div> */}
+
+			<DashboardHeader />
 
 			{/* Stats Cards */}
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">

@@ -430,14 +430,14 @@ export function TemplateSelection({
 
 										{/* Actions */}
 										<div className="flex gap-2 pt-2">
-											<Button
+											{/* <Button
 												variant="outline"
 												size="sm"
 												className="flex-1"
 											>
 												<Eye className="w-4 h-4 mr-1" />
 												Preview
-											</Button>
+											</Button> */}
 											<Button
 												size="sm"
 												className="flex-1"
@@ -473,14 +473,11 @@ export function TemplateSelection({
 									<div className="flex gap-6">
 										{/* Template Preview */}
 										<div className="relative w-32 h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex-shrink-0">
-											<div className="w-full h-full flex items-center justify-center">
-												<div className="text-center">
-													<div className="w-8 h-10 bg-white rounded shadow-sm mx-auto mb-1"></div>
-													<span className="text-gray-500 text-xs">
-														Preview
-													</span>
-												</div>
-											</div>
+											<Image
+												src={template.thumbnail_url}
+												alt={"Academic Researcher"}
+												fill
+											/>
 											{template.is_premium && (
 												<Badge className="absolute top-2 right-2 bg-yellow-500 text-yellow-900 text-xs">
 													<Crown className="w-2 h-2 mr-1" />
@@ -546,13 +543,13 @@ export function TemplateSelection({
 													</div>
 												</div>
 												<div className="flex gap-2">
-													<Button
+													{/* <Button
 														variant="outline"
 														size="sm"
 													>
 														<Eye className="w-4 h-4 mr-1" />
 														Preview
-													</Button>
+													</Button> */}
 													<Button size="sm">
 														Use Template
 													</Button>

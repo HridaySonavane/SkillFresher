@@ -77,7 +77,7 @@ export function LandingHeader() {
 						{/* <ModeToggle /> */}
 						{/* Desktop Actions */}
 						<div className="hidden md:flex items-center space-x-4">
-							<Button variant="ghost" asChild>
+							<Button variant="secondary" asChild>
 								<a href="/auth/signin">Sign In</a>
 							</Button>
 							<Button asChild>

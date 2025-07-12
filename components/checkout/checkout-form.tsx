@@ -90,11 +90,11 @@ export function CheckoutForm({ plan, onStepChange }: CheckoutFormProps) {
 			onStepChange(2);
 		} else if (currentStep === 2 && validateStep2()) {
 			// Sign up the user before proceeding to payment
-			const signupSuccess = await handleSignup();
-			if (signupSuccess) {
-				setCurrentStep(3);
-				onStepChange(3);
-			}
+			setCurrentStep(3);
+			onStepChange(3);
+			// const signupSuccess = await handleSignup();
+			// if (signupSuccess) {
+			// }
 		}
 	};
 
@@ -178,7 +178,7 @@ export function CheckoutForm({ plan, onStepChange }: CheckoutFormProps) {
 	}, [currentStep]);
 
 	return (
-		<Card className="max-w-md min-h-fit flex flex-col justify-evenly mx-auto p-6">
+		<Card className="max-w-lg min-h-fit flex flex-col justify-evenly mx-auto p-6">
 			<CardHeader>
 				<CardTitle className="flex items-center gap-2">
 					{currentStep === 1 && <User className="w-5 h-5" />}
@@ -443,7 +443,7 @@ export function CheckoutForm({ plan, onStepChange }: CheckoutFormProps) {
 							<Button
 								onClick={handleCheckout}
 								disabled={loading}
-								className="bg-blue-600 hover:bg-blue-700"
+								className="bg-blue-600 hover:bg-blue-700 dark:bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 text-white"
 							>
 								{loading ? (
 									<>

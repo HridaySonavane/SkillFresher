@@ -4,10 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { ResumePreview } from "./resume-preview";
+import Image from "next/image";
 
 export function LandingHero() {
 	return (
 		<section className="relative overflow-hidden py-20 lg:py-32 dark:bg-neutral-900">
+			{/* Background Elements */}
+			{/* <div className="absolute inset-0">
+				<div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-50/70 to-transparent rounded-full blur-3xl opacity-70" />
+				<div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-purple-50/50 to-transparent rounded-full blur-3xl opacity-70" />
+			</div> */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					{/* Left Column - Content */}
@@ -96,18 +102,11 @@ export function LandingHero() {
 							</div>
 						</div>
 					</div>
-
 					{/* Right Column - Resume Preview */}
-					<div className="relative">
-						<ResumePreview />
+					<div className="absolute top-auto right-0 translate-x-72 h-[70%] aspect-video drop-shadow-2xl drop-shadow-gray-500 dark:drop-shadow-stone-800 rounded-lg overflow-hidden">
+						<Image src={"/Untitled.png"} alt="photo" fill />
 					</div>
 				</div>
-			</div>
-
-			{/* Background Elements */}
-			<div className="absolute inset-0 -z-10">
-				<div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-50 to-transparent rounded-full blur-3xl opacity-70" />
-				<div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-purple-50 to-transparent rounded-full blur-3xl opacity-70" />
 			</div>
 		</section>
 	);
