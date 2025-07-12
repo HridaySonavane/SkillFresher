@@ -11,6 +11,7 @@ import { RecentResumes } from "@/components/dashboard/recent-resumes";
 import { UsageOverview } from "@/components/dashboard/usage-overview";
 import { SubscriptionCard } from "@/components/dashboard/subscription-card";
 import { supabase } from "@/lib/supabase/auth";
+import { se } from "date-fns/locale";
 
 interface Subscription {
 	plan_id: string;
@@ -40,9 +41,10 @@ export default function DashboardPage() {
 	});
 	const [loading, setLoading] = useState(true);
 	const [syncing, setSyncing] = useState(false);
+	const [sessionId, setSessionId] = useState<any>(null);
 
 	const success = searchParams.get("success");
-	const sessionId = searchParams.get("session_id");
+	// const sessionId = searchParams.get("session_id");
 
 	const [user, setUser] = useState(null);
 
@@ -60,6 +62,7 @@ export default function DashboardPage() {
 			const {
 				data: { session },
 			} = await supabase.auth.getSession();
+			setSessionId(session?.user.id);
 		};
 		checkAuth();
 	}, []);
@@ -161,12 +164,12 @@ export default function DashboardPage() {
 
 	if (!user) {
 		return (
-			<div className="min-h-screen flex items-center justify-center bg-gray-50">
+			<div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-neutral-900">
 				<div className="text-center">
-					<h1 className="text-2xl font-bold text-gray-900 mb-4">
+					<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-200 mb-4">
 						Authentication Required
 					</h1>
-					<p className="text-gray-600 mb-6">
+					<p className="text-gray-600 dark:text-gray-400 mb-6">
 						Please sign in to access your dashboard.
 					</p>
 					<Button asChild>
@@ -189,7 +192,7 @@ export default function DashboardPage() {
 	}
 
 	return (
-		<div className="min-h-screen bg-gray-50">
+		<div className="min-h-screen bg-gray-50 dark:bg-neutral-900">
 			<DashboardHeader userId={userId} />
 
 			<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -282,27 +285,27 @@ export default function DashboardPage() {
 							</CardHeader>
 							<CardContent className="space-y-3">
 								<div className="text-sm">
-									<h4 className="font-medium text-gray-900 mb-1">
+									<h4 className="font-medium text-gray-900 dark:text-gray-200 mb-1">
 										Resume Writing Tips
 									</h4>
-									<p className="text-gray-600">
+									<p className="text-gray-600 dark:text-gray-400">
 										Learn how to write compelling resume
 										content
 									</p>
 								</div>
 								<div className="text-sm">
-									<h4 className="font-medium text-gray-900 mb-1">
+									<h4 className="font-medium text-gray-900 dark:text-gray-200 mb-1">
 										ATS Optimization
 									</h4>
-									<p className="text-gray-600">
+									<p className="text-gray-600 dark:text-gray-400">
 										Make your resume ATS-friendly
 									</p>
 								</div>
 								<div className="text-sm">
-									<h4 className="font-medium text-gray-900 mb-1">
+									<h4 className="font-medium text-gray-900 dark:text-gray-200 mb-1">
 										Interview Prep
 									</h4>
-									<p className="text-gray-600">
+									<p className="text-gray-600 dark:text-gray-400">
 										Prepare for your next interview
 									</p>
 								</div>

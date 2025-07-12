@@ -23,6 +23,15 @@ import {
 	Sparkles,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "../ui/dialog";
+import Link from "next/link";
 
 interface TemplateSelectionProps {
 	onTemplateSelect: (templateId: string) => void;
@@ -135,18 +144,18 @@ export function TemplateSelection({
 		searchTerm || selectedCategory !== "all" || showPremiumOnly;
 
 	return (
-		<div className="h-full overflow-y-auto p-6">
+		<div className="h-full overflow-y-auto p-6 dark:bg-neutral-900">
 			<div className="max-w-6xl mx-auto space-y-6">
 				{/* Header */}
 				<div className="text-center">
 					<div className="flex items-center justify-center gap-2 mb-4">
 						<Sparkles className="w-6 h-6 text-blue-600" />
-						<h2 className="text-3xl font-bold text-gray-900">
+						<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200">
 							Choose Your Template
 						</h2>
 						<Sparkles className="w-6 h-6 text-blue-600" />
 					</div>
-					<p className="text-lg text-gray-600 max-w-2xl mx-auto">
+					<p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
 						Select from our collection of professionally designed,
 						ATS-friendly resume templates. Each template is crafted
 						to help you stand out and land your dream job.
@@ -274,14 +283,11 @@ export function TemplateSelection({
 						{filteredTemplates.map((template) => (
 							<Card
 								key={template.id}
-								className={`group hover:shadow-lg transition-all duration-300 cursor-pointer ${
+								className={`group hover:shadow-lg py-0 transition-all duration-300 cursor-pointer ${
 									selectedTemplate === template.id
 										? "ring-2 ring-blue-500 shadow-lg"
 										: ""
 								}`}
-								onClick={() =>
-									handleTemplateSelect(template.id)
-								}
 							>
 								<CardContent className="p-0">
 									{/* Template Preview */}
@@ -305,16 +311,54 @@ export function TemplateSelection({
 
 										{/* Action Buttons */}
 										<div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-											<Button
-												size="sm"
-												variant="secondary"
-											>
-												<Eye className="w-4 h-4 mr-1" />
-												Preview
-											</Button>
-											<Button size="sm">
-												Use Template
-											</Button>
+											<Dialog>
+												<DialogTrigger className="flex items-center justify-center w-full h-full bg-transparent">
+													<div className="bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 h-8 w-fit flex items-center rounded-md gap-1.5 px-3 has-[>svg]:px-2.5">
+														<Eye className="w-5 h-5 mr-1" />
+														Preview
+													</div>
+												</DialogTrigger>
+												<DialogContent>
+													<DialogHeader>
+														<DialogTitle>
+															{template.name} -
+															Preview
+														</DialogTitle>
+														<DialogDescription>
+															{
+																template.description
+															}
+														</DialogDescription>
+													</DialogHeader>
+													<div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-gray-100">
+														{template.preview_image_url && (
+															<Image
+																src={
+																	template.preview_image_url ||
+																	"/placeholder.svg"
+																}
+																alt={
+																	template.name
+																}
+																fill
+																className="object-cover transition-transform duration-300"
+															/>
+														)}
+													</div>
+													<Button
+														// size="sm"
+														onClick={() =>
+															handleTemplateSelect(
+																template.id
+															)
+														}
+													>
+														<Link href="/auth/signup">
+															Use Template
+														</Link>
+													</Button>
+												</DialogContent>
+											</Dialog>
 										</div>
 
 										{/* Premium Badge */}
@@ -344,10 +388,10 @@ export function TemplateSelection({
 									{/* Template Info */}
 									<div className="p-4 space-y-3">
 										<div>
-											<h3 className="font-semibold text-lg text-gray-900">
+											<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-200">
 												{template.name}
 											</h3>
-											<p className="text-sm text-gray-600 mt-1">
+											<p className="text-sm text-gray-600 dark:text-gray-400 mt-1 truncate">
 												{template.description}
 											</p>
 										</div>
@@ -397,6 +441,11 @@ export function TemplateSelection({
 											<Button
 												size="sm"
 												className="flex-1"
+												onClick={() =>
+													handleTemplateSelect(
+														template.id
+													)
+												}
 											>
 												Use Template
 											</Button>
@@ -444,7 +493,7 @@ export function TemplateSelection({
 										<div className="flex-1 space-y-3">
 											<div>
 												<div className="flex items-center gap-2 mb-1">
-													<h3 className="font-semibold text-lg text-gray-900">
+													<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-200">
 														{template.name}
 													</h3>
 													<Badge variant="secondary">
@@ -458,7 +507,7 @@ export function TemplateSelection({
 														</Badge>
 													)} */}
 												</div>
-												<p className="text-gray-600">
+												<p className="text-gray-600 truncate">
 													{template.description}
 												</p>
 											</div>
@@ -549,8 +598,8 @@ export function TemplateSelection({
 				</div>
 
 				{/* Quick Actions */}
-				<div className="bg-gray-50 rounded-lg p-6">
-					<h3 className="font-semibold text-gray-900 mb-4">
+				<div className="bg-gray-50 dark:bg-neutral-800 rounded-lg p-6">
+					<h3 className="font-semibold text-gray-900 dark:text-gray-200 mb-4">
 						Quick Actions
 					</h3>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">

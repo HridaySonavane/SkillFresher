@@ -55,17 +55,19 @@ export function CreateResumeSidebar({
 	};
 
 	return (
-		<div className="w-64 bg-white border-r border-gray-200 p-4 space-y-6">
+		<div className="h-full w-64 bg-white dark:bg-neutral-900 border-r border-b border-gray-200 dark:border-neutral-800 p-4 space-y-6">
 			{/* Progress */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900">Progress</h3>
+				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+					Progress
+				</h3>
 				<div className="space-y-2">
-					<div className="flex items-center justify-between text-sm">
+					<div className="flex items-center justify-between text-sm dark:text-gray-400">
 						<span>Resume Creation</span>
 						<span className="font-medium">{getProgress()}%</span>
 					</div>
 					<Progress value={getProgress()} className="h-2" />
-					<div className="text-xs text-gray-500">
+					<div className="text-xs text-gray-500 dark:text-gray-400">
 						Step{" "}
 						{currentStep === "template"
 							? "1"
@@ -79,14 +81,14 @@ export function CreateResumeSidebar({
 
 			{/* Current Template */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900 flex items-center gap-2">
+				<h3 className="font-medium text-gray-900 dark:text-gray-200 flex items-center gap-2">
 					<FileText className="w-4 h-4" />
 					Selected Template
 				</h3>
 				<Card className="cursor-pointer hover:shadow-md transition-shadow">
 					<CardContent className="p-3">
 						<div className="relative aspect-[3/4] bg-gray-100 rounded mb-2 flex items-center justify-center">
-							<span className="text-gray-500 text-xs">
+							<span className="text-gray-500 dark:text-gray-400 text-xs">
 								Template Preview
 							</span>
 							{/* <Image
@@ -117,7 +119,9 @@ export function CreateResumeSidebar({
 
 			{/* Quick Actions */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900">Quick Actions</h3>
+				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+					Quick Actions
+				</h3>
 				<div className="space-y-2">
 					{currentStep === "form" && (
 						<>
@@ -165,11 +169,13 @@ export function CreateResumeSidebar({
 
 			{/* Tips */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900">Tips</h3>
+				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+					Tips
+				</h3>
 				<Card>
 					<CardContent className="p-3 space-y-2">
 						{currentStep === "template" && (
-							<div className="text-xs text-gray-600 space-y-1">
+							<div className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
 								<div className="flex items-start gap-2">
 									<CheckCircle className="w-3 h-3 mt-0.5 text-green-500 flex-shrink-0" />
 									<span>
@@ -188,7 +194,7 @@ export function CreateResumeSidebar({
 						)}
 
 						{currentStep === "form" && (
-							<div className="text-xs text-gray-600 space-y-1">
+							<div className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
 								<div className="flex items-start gap-2">
 									<CheckCircle className="w-3 h-3 mt-0.5 text-green-500 flex-shrink-0" />
 									<span>
@@ -213,7 +219,7 @@ export function CreateResumeSidebar({
 						)}
 
 						{currentStep === "preview" && (
-							<div className="text-xs text-gray-600 space-y-1">
+							<div className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
 								<div className="flex items-start gap-2">
 									<CheckCircle className="w-3 h-3 mt-0.5 text-green-500 flex-shrink-0" />
 									<span>
@@ -242,7 +248,9 @@ export function CreateResumeSidebar({
 
 			{/* Help */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900">Need Help?</h3>
+				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+					Need Help?
+				</h3>
 				<div className="space-y-2">
 					<Button
 						variant="ghost"

@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { stripe } from "@/lib/stripe/stripe-config"
+import { stripe } from "@/lib/stripe/stripe-server"
+import Stripe from "stripe"
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 

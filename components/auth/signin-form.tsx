@@ -39,12 +39,14 @@ export function SignInForm() {
 			// Poll for session hydration (up to 2 seconds)
 			let sessionUser = null;
 			for (let i = 0; i < 20; i++) {
-				const { data: { user: currentUser } } = await supabase.auth.getUser();
+				const {
+					data: { user: currentUser },
+				} = await supabase.auth.getUser();
 				if (currentUser) {
 					sessionUser = currentUser;
 					break;
 				}
-				await new Promise(res => setTimeout(res, 100));
+				await new Promise((res) => setTimeout(res, 100));
 			}
 
 			if (!sessionUser) {
@@ -194,7 +196,7 @@ export function SignInForm() {
 					<Separator className="w-full" />
 				</div>
 				<div className="relative flex justify-center text-xs uppercase">
-					<span className="bg-white px-2 text-gray-500">
+					<span className="bg-white dark:bg-neutral-900 px-2 text-gray-500 dark:text-gray-400">
 						Or continue with email
 					</span>
 				</div>
@@ -277,7 +279,7 @@ export function SignInForm() {
 							</div>
 							<Link
 								href="/auth/forgot-password"
-								className="text-sm text-blue-600 hover:underline"
+								className="text-sm text-blue-600 dark:text-blue-500 hover:underline"
 							>
 								Forgot password?
 							</Link>
@@ -328,11 +330,11 @@ export function SignInForm() {
 			</Card>
 
 			{/* Sign Up Link */}
-			<div className="text-center">
+			<div className="text-center mb-8">
 				<span className="text-gray-600">Don't have an account? </span>
 				<Link
 					href="/auth/signup"
-					className="text-blue-600 hover:underline font-medium"
+					className="text-blue-600 dark:text-blue-500 hover:underline font-medium"
 				>
 					Sign up for free
 				</Link>

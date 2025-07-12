@@ -93,10 +93,10 @@ export function RecentResumes({ userId }: RecentResumesProps) {
 				{resumes.length === 0 ? (
 					<div className="text-center py-8">
 						<FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-						<h3 className="text-lg font-semibold text-gray-900 mb-2">
+						<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 mb-1">
 							No resumes yet
 						</h3>
-						<p className="text-gray-600 mb-4">
+						<p className="text-gray-600 dark:text-gray-400 mb-4">
 							Create your first resume to get started.
 						</p>
 						<Button asChild>

@@ -21,13 +21,13 @@ export function AuthLayout({
 }: AuthLayoutProps) {
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-			<div className="flex min-h-screen">
+			<div className="flex min-h-screen dark:bg-neutral-900">
 				{/* Left Side - Form */}
-				<div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8">
+				<div className="flex-1/3 flex flex-col justify-center px-4 sm:px-6 lg:px-8">
 					<div className="mx-auto w-full max-w-md">
 						{/* Back Button */}
 						{showBackButton && (
-							<div className="mb-8">
+							<div className="my-8">
 								<Button variant="ghost" size="sm" asChild>
 									<Link href="/">
 										<ArrowLeft className="w-4 h-4 mr-2" />
@@ -45,21 +45,23 @@ export function AuthLayout({
 								</span>
 							</div>
 							<div className="ml-3">
-								<h1 className="text-2xl font-bold text-gray-900">
+								<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-200">
 									ResumeAI
 								</h1>
-								<p className="text-sm text-gray-500">
+								<p className="text-sm text-gray-500 dark:text-gray-400">
 									AI-Powered Resume Builder
 								</p>
 							</div>
 						</div>
 
 						{/* Header */}
-						<div className="mb-8">
-							<h2 className="text-3xl font-bold text-gray-900 mb-2">
+						<div className="mb-8 dark:bg-neutral-900">
+							<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-2">
 								{title}
 							</h2>
-							<p className="text-gray-600">{subtitle}</p>
+							<p className="text-gray-600 dark:text-gray-400">
+								{subtitle}
+							</p>
 						</div>
 
 						{/* Form */}
@@ -68,7 +70,7 @@ export function AuthLayout({
 				</div>
 
 				{/* Right Side - Visual */}
-				<div className="hidden lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:px-8 bg-gradient-to-br from-blue-600 to-purple-700">
+				<div className="hidden lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:px-8 bg-gradient-to-br from-blue-600 to-purple-700 rounded-l-4xl">
 					<div className="max-w-md mx-auto text-center text-white">
 						{/* Floating Elements */}
 						<div className="relative mb-12">
@@ -87,6 +89,22 @@ export function AuthLayout({
 									Create professional, ATS-optimized resumes
 									in minutes with our advanced AI technology.
 								</p>
+							</div>
+						</div>
+
+						{/* Stats */}
+						<div className="my-12 grid grid-cols-2 gap-8">
+							<div>
+								<div className="text-3xl font-bold">50K+</div>
+								<div className="text-white/80 text-sm">
+									Resumes Created
+								</div>
+							</div>
+							<div>
+								<div className="text-3xl font-bold">4.9/5</div>
+								<div className="text-white/80 text-sm">
+									User Rating
+								</div>
 							</div>
 						</div>
 
@@ -115,22 +133,6 @@ export function AuthLayout({
 								<span className="text-left">
 									95% ATS Compatibility Rate
 								</span>
-							</div>
-						</div>
-
-						{/* Stats */}
-						<div className="mt-12 grid grid-cols-2 gap-8">
-							<div>
-								<div className="text-3xl font-bold">50K+</div>
-								<div className="text-white/80 text-sm">
-									Resumes Created
-								</div>
-							</div>
-							<div>
-								<div className="text-3xl font-bold">4.9/5</div>
-								<div className="text-white/80 text-sm">
-									User Rating
-								</div>
 							</div>
 						</div>
 					</div>

@@ -285,7 +285,7 @@ export function SignUpForm() {
 					<Separator className="w-full" />
 				</div>
 				<div className="relative flex justify-center text-xs uppercase">
-					<span className="bg-white px-2 text-gray-500">
+					<span className="bg-white dark:bg-neutral-900 px-2 text-gray-500 dark:text-gray-400">
 						Or create account with email
 					</span>
 				</div>
@@ -337,7 +337,7 @@ export function SignUpForm() {
 							</div>
 						</div>
 
-						<div className="space-y-2">
+						{/* <div className="space-y-2">
 							<Label htmlFor="role">Account Type</Label>
 							<select
 								id="role"
@@ -366,7 +366,7 @@ export function SignUpForm() {
 								Choose your account type. Premium users get
 								access to advanced features.
 							</p>
-						</div>
+						</div> */}
 
 						<div className="space-y-2">
 							<Label htmlFor="password">Password</Label>
@@ -487,14 +487,14 @@ export function SignUpForm() {
 									I agree to the{" "}
 									<Link
 										href="/terms"
-										className="text-blue-600 hover:underline"
+										className="text-blue-600 dark:text-blue-500 hover:underline"
 									>
 										Terms of Service
 									</Link>{" "}
 									and{" "}
 									<Link
 										href="/privacy"
-										className="text-blue-600 hover:underline"
+										className="text-blue-600 dark:text-blue-500 hover:underline"
 									>
 										Privacy Policy
 									</Link>
@@ -547,11 +547,11 @@ export function SignUpForm() {
 			</Card>
 
 			{/* Sign In Link */}
-			<div className="text-center">
+			<div className="text-center mb-8">
 				<span className="text-gray-600">Already have an account? </span>
 				<Link
 					href="/auth/signin"
-					className="text-blue-600 hover:underline font-medium"
+					className="text-blue-600 dark:text-blue-500 hover:underline font-medium"
 				>
 					Sign in
 				</Link>

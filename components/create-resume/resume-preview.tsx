@@ -95,9 +95,9 @@ export function ResumePreview({
 	const stepMessage = getStepMessage();
 
 	return (
-		<div className="h-full flex flex-col">
+		<div className="h-full w-full flex flex-col border-none">
 			{/* Preview Controls */}
-			<div className="flex items-center justify-between p-4 border-b bg-white">
+			<div className="flex items-center justify-between p-4 border-b bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-800">
 				<div className="flex items-center gap-2">
 					<Button variant="outline" size="sm" onClick={zoomOut}>
 						<ZoomOut className="w-4 h-4" />
@@ -228,7 +228,7 @@ function ModernProfessionalTemplate({ data }: { data: ResumeData }) {
 									</h3>
 									<span className="text-sm text-gray-500">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<p className="text-gray-600 mb-2">
@@ -352,7 +352,7 @@ function CreativeDesignerTemplate({ data }: { data: ResumeData }) {
 									</h3>
 									<span className="text-sm text-purple-500 font-medium">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<p className="text-purple-600 mb-3">
@@ -441,7 +441,7 @@ function TechMinimalistTemplate({ data }: { data: ResumeData }) {
 									</h3>
 									<span className="text-sm text-gray-500">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<p className="text-gray-600 mb-3">
@@ -535,7 +535,7 @@ function ExecutiveClassicTemplate({ data }: { data: ResumeData }) {
 									</h3>
 									<span className="text-sm text-gray-500">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<p className="text-gray-600 mb-3 font-medium">
@@ -638,7 +638,7 @@ function AcademicResearcherTemplate({ data }: { data: ResumeData }) {
 									</h3>
 									<span className="text-sm text-gray-500">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<p className="text-gray-600 mb-2">
@@ -762,7 +762,7 @@ function StartupFounderTemplate({ data }: { data: ResumeData }) {
 									</h3>
 									<span className="text-sm text-blue-500 font-medium">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<p className="text-blue-600 mb-3">
@@ -886,7 +886,7 @@ function ElegantMinimalistTemplate({ data }: { data: ResumeData }) {
 									</span>
 									<span className="text-xs text-teal-500">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<div className="text-teal-600 text-sm mb-1">
@@ -1117,7 +1117,7 @@ function TimelineTemplate({ data }: { data: ResumeData }) {
 									</span>
 									<span className="text-xs text-indigo-500">
 										{exp.startDate || "Start"} -{" "}
-										{exp.endDate || "End"}
+										{exp.endDate || "Present"}
 									</span>
 								</div>
 								<div className="text-indigo-700 text-sm mb-1">
@@ -1262,7 +1262,7 @@ function TwoColumnModernTemplate({ data }: { data: ResumeData }) {
 										</span>
 										<span className="text-xs text-blue-700">
 											{exp.startDate || "Start"} -{" "}
-											{exp.endDate || "End"}
+											{exp.endDate || "Present"}
 										</span>
 									</div>
 									<div className="text-blue-700 text-sm mb-1">
@@ -1387,7 +1387,7 @@ function PhotoHeaderTemplate({ data }: { data: ResumeData }) {
 								</span>
 								<span className="text-xs text-blue-700">
 									{exp.startDate || "Start"} -{" "}
-									{exp.endDate || "End"}
+									{exp.endDate || "Present"}
 								</span>
 							</div>
 							<div className="text-blue-700 text-sm mb-1">

@@ -84,7 +84,9 @@ export default function CreateResumePage() {
 	const { template, loading } = useTemplateData(selectedTemplate);
 
 	return (
-		<div className={`min-h-screen bg-gray-50 ${!resumeData && "w-full"}`}>
+		<div
+			className={`min-h-screen bg-gray-50 dark:bg-neutral-900 ${!resumeData && "w-full"}`}
+		>
 			<ResumeHeader
 				currentStep={currentStep}
 				onBackToTemplates={handleBackToTemplates}
@@ -96,7 +98,7 @@ export default function CreateResumePage() {
 				}
 			/>
 
-			<div className="flex h-[calc(100vh-120px)]">
+			<div className="flex h-full ">
 				{/* Left Sidebar */}
 				<CreateResumeSidebar
 					currentStep={currentStep}
@@ -161,7 +163,7 @@ export default function CreateResumePage() {
 
 					{/* Preview Area */}
 					{currentStep !== "template" && (
-						<div className="w-1/2 bg-white">
+						<div className="flex-1 w-fit bg-white">
 							{loading ? (
 								<div>Loading template...</div>
 							) : template ? (

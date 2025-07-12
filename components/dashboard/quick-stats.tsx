@@ -22,6 +22,7 @@ export function QuickStats({ usage, subscription }: QuickStatsProps) {
 			value: usage?.resumes_created || 0,
 			icon: FileText,
 			color: "text-blue-600",
+			darkColor: "text-blue-500",
 			bgColor: "bg-blue-100",
 		},
 		{
@@ -29,6 +30,7 @@ export function QuickStats({ usage, subscription }: QuickStatsProps) {
 			value: usage?.downloads_used || 0,
 			icon: Download,
 			color: "text-green-600",
+			darkColor: "text-green-500",
 			bgColor: "bg-green-100",
 		},
 		{
@@ -36,6 +38,7 @@ export function QuickStats({ usage, subscription }: QuickStatsProps) {
 			value: usage?.ai_optimizations_used || 0,
 			icon: Sparkles,
 			color: "text-purple-600",
+			darkColor: "text-purple-500",
 			bgColor: "bg-purple-100",
 		},
 		{
@@ -46,6 +49,10 @@ export function QuickStats({ usage, subscription }: QuickStatsProps) {
 				subscription?.status === "active"
 					? "text-green-600"
 					: "text-gray-600",
+			darkColor:
+				subscription?.status === "active"
+					? "text-green-500"
+					: "text-gray-500",
 			bgColor:
 				subscription?.status === "active"
 					? "bg-green-100"
@@ -58,7 +65,7 @@ export function QuickStats({ usage, subscription }: QuickStatsProps) {
 			{stats.map((stat, index) => (
 				<Card key={index}>
 					<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-						<CardTitle className="text-sm font-medium text-gray-600">
+						<CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400">
 							{stat.title}
 						</CardTitle>
 						<div className={`p-2 rounded-full ${stat.bgColor}`}>
@@ -66,7 +73,9 @@ export function QuickStats({ usage, subscription }: QuickStatsProps) {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<div className={`text-2xl font-bold ${stat.color}`}>
+						<div
+							className={`text-2xl font-bold ${stat.color} dark:${stat.darkColor}`}
+						>
 							{stat.value}
 						</div>
 					</CardContent>
