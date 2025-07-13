@@ -55,7 +55,7 @@ export function TemplateFilters() {
 	);
 
 	return (
-		<div className="space-y-6 dark:bg-neutral-900">
+		<div className="space-y-6 dark:bg-gray-950">
 			<Card>
 				<CardHeader>
 					<div className="flex items-center justify-between">

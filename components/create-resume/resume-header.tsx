@@ -63,7 +63,7 @@ export function ResumeHeader({
 	};
 
 	return (
-		<header className="bg-white dark:bg-neutral-900 border-b border-gray-200 dark:border-neutral-800 px-6 py-4">
+		<header className="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-neutral-800 px-6 py-4">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-4">
 					{/* Back Button */}
@@ -98,7 +98,7 @@ export function ResumeHeader({
 
 					{/* Title and Description */}
 					<div>
-						<h1 className="text-lg font-semibold text-gray-900 dark:text-gray-200">
+						<h1 className="text-lg font-semibold text-gray-900 dark:text-gray-300">
 							{getStepTitle()}
 						</h1>
 						<p className="text-sm text-gray-500">
@@ -112,7 +112,7 @@ export function ResumeHeader({
 							<div className="h-6 w-px bg-gray-300" />
 							<div className="text-sm">
 								<span className="text-gray-500">Template:</span>
-								<span className="font-medium text-gray-900 dark:text-gray-200 ml-1">
+								<span className="font-medium text-gray-900 dark:text-gray-300 ml-1">
 									{templateName}
 								</span>
 							</div>

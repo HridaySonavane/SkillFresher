@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Download, RotateCcw, ZoomIn, ZoomOut, Eye } from "lucide-react";
+import Image from "next/image";
 import type { ResumeData } from "@/lib/document-generators/types";
 
 interface ResumePreviewProps {
@@ -97,7 +98,7 @@ export function ResumePreview({
 	return (
 		<div className="h-full w-full flex flex-col border-none">
 			{/* Preview Controls */}
-			<div className="flex items-center justify-between p-4 border-b bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-800">
+			<div className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-950 border-gray-200 dark:border-neutral-800">
 				<div className="flex items-center gap-2">
 					<Button variant="outline" size="sm" onClick={zoomOut}>
 						<ZoomOut className="w-4 h-4" />
@@ -121,7 +122,7 @@ export function ResumePreview({
 			</div>
 
 			{/* Preview Area */}
-			<div className="flex-1 overflow-auto p-6 bg-gray-100">
+			{/* <div className="flex-1 overflow-auto p-6 bg-gray-100">
 				{/* {currentStep === "template" && (
 					<div className="h-full flex items-center justify-center">
 						<Card className="max-w-md text-center">
@@ -138,40 +139,40 @@ export function ResumePreview({
 							</CardContent>
 						</Card>
 					</div>
-				)} */}
+				)} 
 
-				{currentStep === "form" && (
-					<div className="flex justify-center">
-						<div
-							className="bg-white shadow-lg"
-							style={{
-								transform: `scale(${scale})`,
-								transformOrigin: "top center",
-								width: "210mm", // A4 width
-								minHeight: "297mm", // A4 height
-							}}
-						>
-							{renderTemplate()}
-						</div>
-					</div>
-				)}
+			</div> */}
+			{currentStep === "form" && (
+				<div
+					className="flex-1 overflow-auto bg-white shadow-lg"
+					style={{
+						transform: `scale(${scale})`,
+						transformOrigin: "top center",
+						// width: "210mm", // A4 width
+						minHeight: "297mm", // A4 height
+					}}
+				>
+					{renderTemplate()}
+				</div>
+				// <div className="flex justify-center">
+				// </div>
+			)}
 
-				{currentStep === "preview" && (
-					<div className="flex justify-center">
-						<div
-							className="bg-white shadow-lg"
-							style={{
-								transform: `scale(${scale})`,
-								transformOrigin: "top center",
-								width: "210mm", // A4 width
-								minHeight: "297mm", // A4 height
-							}}
-						>
-							{renderTemplate()}
-						</div>
-					</div>
-				)}
-			</div>
+			{currentStep === "preview" && (
+				<div
+					className=" flex-1 overflow-auto bg-white shadow-lg"
+					style={{
+						transform: `scale(${scale})`,
+						transformOrigin: "top center",
+						// width: "210mm", // A4 width
+						minHeight: "297mm", // A4 height
+					}}
+				>
+					{renderTemplate()}
+				</div>
+				// <div className="flex justify-center">
+				// </div>
+			)}
 		</div>
 	);
 }
@@ -815,7 +816,7 @@ function ElegantMinimalistTemplate({ data }: { data: ResumeData }) {
 	return (
 		<div
 			className="flex bg-white shadow-lg rounded-lg overflow-hidden"
-			style={{ width: "210mm", minHeight: "297mm" }}
+			style={{ /* width: "210mm", */ minHeight: "297mm" }}
 		>
 			{/* Sidebar */}
 			<div className="w-1/3 bg-teal-50 p-6 flex flex-col items-center border-r border-teal-200">
@@ -941,7 +942,7 @@ function BoldSidebarTemplate({ data }: { data: ResumeData }) {
 	return (
 		<div
 			className="flex bg-white shadow-lg rounded-lg overflow-hidden"
-			style={{ width: "210mm", minHeight: "297mm" }}
+			style={{ /* width: "210mm", */ minHeight: "297mm" }}
 		>
 			{/* Sidebar */}
 			<div className="w-1/4 bg-blue-900 text-white p-8 flex flex-col items-center">
@@ -1067,7 +1068,7 @@ function TimelineTemplate({ data }: { data: ResumeData }) {
 	return (
 		<div
 			className="bg-white p-10 font-sans text-gray-900"
-			style={{ width: "210mm", minHeight: "297mm" }}
+			style={{ /* width: "210mm", */ minHeight: "297mm" }}
 		>
 			{/* Header */}
 			<div className="text-center mb-10">
@@ -1197,7 +1198,7 @@ function TwoColumnModernTemplate({ data }: { data: ResumeData }) {
 	return (
 		<div
 			className="bg-gray-50 p-10 font-sans text-gray-900"
-			style={{ width: "210mm", minHeight: "297mm" }}
+			style={{ /* width: "210mm", */ minHeight: "297mm" }}
 		>
 			<div className="flex gap-8">
 				{/* Left Column */}
@@ -1320,14 +1321,14 @@ function PhotoHeaderTemplate({ data }: { data: ResumeData }) {
 	return (
 		<div
 			className="bg-white p-10 font-sans text-gray-900"
-			style={{ width: "210mm", minHeight: "297mm" }}
+			style={{ /* width: "210mm", */ minHeight: "297mm" }}
 		>
 			{/* Header with Photo */}
 			<div className="flex items-center gap-8 mb-10">
 				<div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden border-4 border-blue-200">
 					{/* Placeholder for photo, can be replaced with actual image */}
 					{data.personalInfo.photoUrl ? (
-						<img
+						<Image
 							src={data.personalInfo.photoUrl}
 							alt="Profile"
 							className="w-full h-full object-cover"

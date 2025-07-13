@@ -31,10 +31,10 @@ const testimonials = [
 
 export function PricingTestimonials() {
 	return (
-		<div className="py-16 dark:bg-neutral-900">
+		<div className="py-16 dark:bg-gray-950">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center mb-12">
-					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
+					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-4">
 						Loved by job seekers worldwide
 					</h2>
 					<p className="text-xl text-gray-600 dark:text-gray-400">
@@ -45,7 +45,10 @@ export function PricingTestimonials() {
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					{testimonials.map((testimonial, index) => (
-						<Card key={index} className="border-0 shadow-lg">
+						<Card
+							key={index}
+							className="border-0 shadow-lg dark:bg-transparent/70 dark:backdrop-blur-md dark:inset-ring-2 dark:inset-ring-neutral-500/30 transition-shadow duration-300"
+						>
 							<CardContent className="p-6">
 								<div className="flex items-center gap-1 mb-4">
 									{[...Array(testimonial.rating)].map(

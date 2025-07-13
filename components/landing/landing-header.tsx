@@ -11,7 +11,7 @@ export function LandingHeader() {
 	return (
 		<>
 			{/* Donation Banner */}
-			<div className="bg-gray-900 dark:bg-neutral-900/70 text-white text-sm py-2 px-4 text-center">
+			<div className="bg-gray-900 dark:bg-gray-950/70 text-white text-sm py-2 px-4 text-center">
 				<div className="flex items-center justify-center gap-2">
 					<Heart className="w-4 h-4 text-red-400" />
 					<span>
@@ -23,7 +23,7 @@ export function LandingHeader() {
 			</div>
 
 			{/* Main Header */}
-			<header className="bg-white/80 dark:bg-neutral-900/70 backdrop-blur-sm border-b border-gray-200 dark:border-none dark:drop-shadow-2xl/10 dark:drop-shadow-neutral-700 sticky top-0 z-50">
+			<header className="bg-gray-50/80 dark:bg-gray-950/70 backdrop-blur-sm border-b border-gray-200 dark:border-none sticky top-0 z-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex justify-between items-center h-16">
 						{/* Logo */}
@@ -36,7 +36,7 @@ export function LandingHeader() {
 								</div>
 							</div>
 							<div className="ml-3">
-								<h1 className="text-xl font-bold text-gray-900 dark:text-gray-200">
+								<h1 className="text-xl font-bold text-gray-900 dark:text-gray-300">
 									SkillFresher
 								</h1>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
@@ -49,25 +49,25 @@ export function LandingHeader() {
 						<nav className="hidden md:flex space-x-8 ">
 							<a
 								href="#features"
-								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"
 							>
 								Features
 							</a>
 							<a
 								href="./templete"
-								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"
 							>
 								Templates
 							</a>
 							<a
 								href="./pricing"
-								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"
 							>
 								Pricing
 							</a>
 							<a
 								href="#about"
-								className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors"
+								className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"
 							>
 								About
 							</a>
@@ -77,12 +77,17 @@ export function LandingHeader() {
 						{/* <ModeToggle /> */}
 						{/* Desktop Actions */}
 						<div className="hidden md:flex items-center space-x-4">
-							<Button variant="secondary" asChild>
+							<Button
+								className="dark:bg-gray-800/85"
+								variant="secondary"
+								asChild
+							>
 								<a href="/auth/signin">Sign In</a>
 							</Button>
 							<Button asChild>
 								<a href="/auth/signup">Get Started</a>
 							</Button>
+							<ModeToggle />
 						</div>
 
 						{/* Mobile menu button */}

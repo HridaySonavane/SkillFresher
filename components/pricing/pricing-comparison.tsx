@@ -204,10 +204,10 @@ export function PricingComparison() {
 	};
 
 	return (
-		<div className="py-16 bg-gray-50 dark:bg-neutral-900">
+		<div className="py-16 bg-gray-50 dark:bg-gray-950">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center mb-12">
-					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
+					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-4">
 						Compare all features
 					</h2>
 					<p className="text-xl text-gray-600 dark:text-gray-400">

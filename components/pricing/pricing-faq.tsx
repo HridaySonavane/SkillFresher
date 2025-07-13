@@ -47,10 +47,10 @@ export function PricingFAQ() {
 	};
 
 	return (
-		<div className="py-16 bg-gray-50 dark:bg-neutral-900">
+		<div className="py-16 bg-gray-50 dark:bg-gradient-to-t from-gray-900 to-gray-950">
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center mb-12">
-					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
+					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-4">
 						Frequently asked questions
 					</h2>
 					<p className="text-xl text-gray-600 dark:text-gray-400">
@@ -60,13 +60,16 @@ export function PricingFAQ() {
 
 				<div className="space-y-2">
 					{faqs.map((faq, index) => (
-						<Card key={index} className="border-0 shadow-sm">
+						<Card
+							key={index}
+							className="border-0 shadow-sm dark:bg-transparent/70 dark:backdrop-blur-md dark:inset-ring-1 dark:inset-ring-gray-800/70 dark:rounded-lg transition-shadow duration-300"
+						>
 							<CardContent className="p-0">
 								<button
-									className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-stone-800 transition-colors"
+									className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-transparent transition-colors"
 									onClick={() => toggleFAQ(index)}
 								>
-									<span className="font-semibold text-gray-900 dark:text-gray-200 pr-4">
+									<span className="font-semibold text-gray-900 dark:text-gray-300 pr-4">
 										{faq.question}
 									</span>
 									{openIndex === index ? (

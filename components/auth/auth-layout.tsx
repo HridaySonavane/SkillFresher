@@ -21,7 +21,7 @@ export function AuthLayout({
 }: AuthLayoutProps) {
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-			<div className="flex min-h-screen dark:bg-neutral-900">
+			<div className="flex min-h-screen dark:bg-gray-950">
 				{/* Left Side - Form */}
 				<div className="flex-1/3 flex flex-col justify-center px-4 sm:px-6 lg:px-8">
 					<div className="mx-auto w-full max-w-md">
@@ -45,7 +45,7 @@ export function AuthLayout({
 								</span>
 							</div>
 							<div className="ml-3">
-								<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-200">
+								<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-300">
 									ResumeAI
 								</h1>
 								<p className="text-sm text-gray-500 dark:text-gray-400">
@@ -55,8 +55,8 @@ export function AuthLayout({
 						</div>
 
 						{/* Header */}
-						<div className="mb-8 dark:bg-neutral-900">
-							<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-2">
+						<div className="mb-8 dark:bg-gray-950">
+							<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-2">
 								{title}
 							</h2>
 							<p className="text-gray-600 dark:text-gray-400">

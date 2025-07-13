@@ -28,20 +28,20 @@ export function DashboardHeader({ userId }: DashboardHeaderProps) {
 	};
 
 	return (
-		<header className="bg-white dark:bg-neutral-900 border-b border-gray-200 sticky top-0 z-50">
+		<header className="bg-gray-100 dark:bg-gray-950 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16">
 					{/* Logo and Navigation */}
 					<div className="flex items-center">
 						<div className="flex-shrink-0">
-							<h1 className="text-xl font-bold text-gray-900 dark:text-gray-200">
-								AI Resume Builder
+							<h1 className="text-xl font-bold text-gray-900 dark:text-gray-300">
+								SkillFresher
 							</h1>
 						</div>
 						<nav className="hidden md:ml-8 md:flex md:space-x-8">
 							<a
 								href={`/dashboard/${userId}`}
-								className="text-gray-900 dark:text-gray-200 hover:text-gray-700 px-3 py-2 text-sm font-medium"
+								className="text-gray-900 dark:text-gray-300 hover:text-gray-700 px-3 py-2 text-sm font-medium"
 							>
 								Dashboard
 							</a>

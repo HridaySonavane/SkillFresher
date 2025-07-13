@@ -35,7 +35,7 @@ export function OrderSummary({ plan }: OrderSummaryProps) {
 				<CardContent className="space-y-4">
 					<div className="flex items-center justify-between">
 						<div>
-							<h3 className="font-medium text-gray-900 dark:text-gray-200">
+							<h3 className="font-medium text-gray-900 dark:text-gray-300">
 								{plan.name} Plan
 							</h3>
 							<p className="text-sm text-gray-600 dark:text-gray-400">
@@ -48,7 +48,7 @@ export function OrderSummary({ plan }: OrderSummaryProps) {
 							</p>
 						</div>
 						<div className="text-right">
-							<div className="font-semibold text-gray-900 dark:text-gray-200">
+							<div className="font-semibold text-gray-900 dark:text-gray-300">
 								${plan.price}
 							</div>
 							{isYearly && (

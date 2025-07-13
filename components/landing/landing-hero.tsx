@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export function LandingHero() {
 	return (
-		<section className="relative overflow-hidden py-20 lg:py-32 dark:bg-neutral-900">
+		<section className="relative overflow-hidden py-20 lg:py-32 bg-gray-200 dark:bg-gradient-to-b from-gray-900 to-gray-950">
 			{/* Background Elements */}
 			{/* <div className="absolute inset-0">
 				<div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-50/70 to-transparent rounded-full blur-3xl opacity-70" />
@@ -37,7 +37,7 @@ export function LandingHero() {
 							<p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
 								Finally,
 							</p>
-							<h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-gray-200 leading-tight">
+							<h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-gray-300 leading-tight">
 								An AI-powered resume builder
 							</h1>
 						</div>

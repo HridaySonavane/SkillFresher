@@ -47,9 +47,9 @@ export function TemplateCategories() {
 	const [activeCategory, setActiveCategory] = useState("all");
 
 	return (
-		<div className="space-y-6 dark:bg-neutral-900">
+		<div className="space-y-6 dark:bg-gray-950">
 			<div>
-				<h2 className="text-2xl font-bold text-gray-900 dark:text-gray-200 mb-2">
+				<h2 className="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-2">
 					Browse by Category
 				</h2>
 				<p className="text-gray-600 dark:text-gray-400">

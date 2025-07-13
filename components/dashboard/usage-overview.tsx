@@ -58,9 +58,11 @@ export function UsageOverview({ usage, subscription }: UsageOverviewProps) {
 	];
 
 	return (
-		<Card>
+		<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
 			<CardHeader className="flex flex-row items-center justify-between">
-				<CardTitle className="text-xl">Usage Overview</CardTitle>
+				<CardTitle className="text-xl dark:text-gray-200">
+					Usage Overview
+				</CardTitle>
 				{!subscription && (
 					<Button size="sm" asChild>
 						<a href="/pricing">Upgrade Plan</a>
@@ -71,7 +73,7 @@ export function UsageOverview({ usage, subscription }: UsageOverviewProps) {
 				{usageItems.map((item, index) => (
 					<div key={index} className="space-y-2">
 						<div className="flex justify-between text-sm">
-							<span className="font-medium text-gray-900 dark:text-gray-200">
+							<span className="font-medium text-gray-900 dark:text-gray-300">
 								{item.label}
 							</span>
 							<span className="text-gray-600 dark:text-gray-400">

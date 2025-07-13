@@ -55,8 +55,8 @@ export function TemplateFilters() {
 	);
 
 	return (
-		<div className="space-y-6 dark:bg-neutral-900">
-			<Card>
+		<div className="space-y-6 dark:bg-gray-950">
+			<Card className="dark:bg-input/20">
 				<CardHeader>
 					<div className="flex items-center justify-between">
 						<CardTitle className="flex items-center gap-2">
@@ -195,7 +195,7 @@ export function TemplateFilters() {
 			</Card>
 
 			{/* Quick Actions */}
-			<Card>
+			<Card className="dark:bg-input/20">
 				<CardHeader>
 					<CardTitle className="text-lg">Quick Actions</CardTitle>
 				</CardHeader>

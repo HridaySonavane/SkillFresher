@@ -14,7 +14,7 @@ interface SubscriptionCardProps {
 export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 	if (!subscription) {
 		return (
-			<Card>
+			<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
 				<CardHeader>
 					<CardTitle className="text-lg flex items-center gap-2">
 						<AlertCircle className="w-5 h-5 text-amber-500" />
@@ -59,16 +59,18 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 	const planName = planNames[subscription.plan_id] || subscription.plan_id;
 
 	return (
-		<Card>
+		<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
 			<CardHeader>
-				<CardTitle className="text-lg flex items-center gap-2">
+				<CardTitle className="text-lg dark:text-gray-100 flex items-center gap-2">
 					<Crown className="w-5 h-5 text-yellow-500" />
 					{planName} Plan
 				</CardTitle>
 			</CardHeader>
 			<CardContent className="space-y-4">
 				<div className="flex items-center justify-between">
-					<span className="text-sm font-medium">Status:</span>
+					<span className="text-sm font-medium dark:text-gray-200">
+						Status:
+					</span>
 					<Badge
 						variant={
 							subscription.status === "active"
@@ -82,7 +84,9 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 				</div>
 
 				<div className="flex items-center justify-between">
-					<span className="text-sm font-medium">Next billing:</span>
+					<span className="text-sm font-medium dark:text-gray-200">
+						Next billing:
+					</span>
 					<span className="text-sm text-gray-600 dark:text-gray-400">
 						{new Date(
 							subscription.current_period_end
@@ -93,7 +97,7 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 				<div className="space-y-2 text-sm">
 					<div className="flex justify-between">
 						<span>Resumes:</span>
-						<span>
+						<span className="dark:text-gray-400">
 							{subscription.plan_id === "enterprise"
 								? "Unlimited"
 								: "Up to 50"}
@@ -101,7 +105,7 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 					</div>
 					<div className="flex justify-between">
 						<span>Downloads:</span>
-						<span>
+						<span className="dark:text-gray-400">
 							{subscription.plan_id === "enterprise"
 								? "Unlimited"
 								: "Up to 200"}
@@ -109,7 +113,7 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 					</div>
 					<div className="flex justify-between">
 						<span>AI Optimizations:</span>
-						<span>
+						<span className="dark:text-gray-400">
 							{subscription.plan_id === "enterprise"
 								? "Unlimited"
 								: "Up to 100"}
@@ -120,7 +124,7 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 				<div className="space-y-2">
 					<Button
 						variant="outline"
-						className="w-full bg-transparent"
+						className="w-full bg-transparent dark:text-gray-200"
 						size="sm"
 					>
 						<CreditCard className="w-4 h-4 mr-2" />
@@ -128,7 +132,7 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 					</Button>
 					<Button
 						variant="outline"
-						className="w-full bg-transparent"
+						className="w-full bg-transparent dark:text-gray-200"
 						size="sm"
 						asChild
 					>

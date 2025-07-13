@@ -63,9 +63,12 @@ export function QuickStats({ usage, subscription }: QuickStatsProps) {
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 			{stats.map((stat, index) => (
-				<Card key={index}>
+				<Card
+					key={index}
+					className="border-0 shadow-sm dark:bg-gray-950 dark:backdrop-blur-md dark:inset-ring-1 dark:inset-ring-gray-700/70 dark:rounded-lg transition-shadow duration-300"
+				>
 					<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-						<CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400">
+						<CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400/80">
 							{stat.title}
 						</CardTitle>
 						<div className={`p-2 rounded-full ${stat.bgColor}`}>

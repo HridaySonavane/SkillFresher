@@ -50,11 +50,11 @@ export function TemplateGallery() {
 	};
 
 	return (
-		<div className="space-y-6 dark:bg-neutral-900">
+		<div className="space-y-6 dark:bg-gray-950">
 			{/* Header */}
 			<div className="flex items-center justify-between">
 				<div>
-					<h2 className="text-2xl font-bold text-gray-900 dark:text-gray-200">
+					<h2 className="text-2xl font-bold text-gray-900 dark:text-gray-300">
 						All Templates
 					</h2>
 					<p className="text-gray-600 dark:text-gray-400">
@@ -181,7 +181,7 @@ export function TemplateGallery() {
 							{/* Template Info */}
 							<div className="p-4 space-y-3 dark:bg-gradient-to-b from-transparent/70 backdrop-blur-2xl">
 								<div>
-									<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-200">
+									<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-300">
 										{template.name}
 									</h3>
 									<p className="text-sm text-gray-600 dark:text-gray-400 mt-1 truncate">

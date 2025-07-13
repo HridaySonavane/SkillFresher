@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function PricingHeader() {
 	return (
-		<div className="bg-white border-b border-gray-200 dark:bg-neutral-900 dark:border-neutral-700">
+		<div className="bg-white border-b border-gray-200 dark:bg-gradient-to-b from-gray-900 to-gray-950 dark:border-gray-700">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				<div className="flex items-center gap-4 mb-8">
 					<Button variant="ghost" size="sm" asChild>
@@ -27,7 +27,7 @@ export function PricingHeader() {
 						30-Day Money Back Guarantee
 					</Badge>
 
-					<h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-gray-200 mb-6">
+					<h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-gray-300 mb-6">
 						Simple, transparent pricing
 					</h1>
 

@@ -55,10 +55,10 @@ export function CreateResumeSidebar({
 	};
 
 	return (
-		<div className="h-full w-64 bg-white dark:bg-neutral-900 border-r border-b border-gray-200 dark:border-neutral-800 p-4 space-y-6">
+		<div className="h-full w-64 bg-white dark:bg-gray-950 border-r border-b border-gray-200 dark:border-neutral-800 p-4 space-y-6">
 			{/* Progress */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+				<h3 className="font-medium text-gray-900 dark:text-gray-300">
 					Progress
 				</h3>
 				<div className="space-y-2">
@@ -81,7 +81,7 @@ export function CreateResumeSidebar({
 
 			{/* Current Template */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900 dark:text-gray-200 flex items-center gap-2">
+				<h3 className="font-medium text-gray-900 dark:text-gray-300 flex items-center gap-2">
 					<FileText className="w-4 h-4" />
 					Selected Template
 				</h3>
@@ -119,7 +119,7 @@ export function CreateResumeSidebar({
 
 			{/* Quick Actions */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+				<h3 className="font-medium text-gray-900 dark:text-gray-300">
 					Quick Actions
 				</h3>
 				<div className="space-y-2">
@@ -169,7 +169,7 @@ export function CreateResumeSidebar({
 
 			{/* Tips */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+				<h3 className="font-medium text-gray-900 dark:text-gray-300">
 					Tips
 				</h3>
 				<Card>
@@ -248,7 +248,7 @@ export function CreateResumeSidebar({
 
 			{/* Help */}
 			<div className="space-y-3">
-				<h3 className="font-medium text-gray-900 dark:text-gray-200">
+				<h3 className="font-medium text-gray-900 dark:text-gray-300">
 					Need Help?
 				</h3>
 				<div className="space-y-2">

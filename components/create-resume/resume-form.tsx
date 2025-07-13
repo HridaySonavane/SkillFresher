@@ -216,11 +216,11 @@ export function ResumeForm({
 	};
 
 	return (
-		<div className="h-full flex flex-col items-center overflow-y-auto p-6 dark:bg-neutral-900">
+		<div className="h-full flex flex-col items-center overflow-y-auto p-6 dark:bg-gray-950">
 			<div className="max-w-2xl mx-auto space-y-6">
 				{/* Progress Indicator */}
 				<Card>
-					<CardContent className="p-4">
+					<CardContent className="px-4 py-0">
 						<div className="flex items-center justify-between mb-4">
 							<h3 className="font-medium">Resume Progress</h3>
 							<Badge

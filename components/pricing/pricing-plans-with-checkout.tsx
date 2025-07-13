@@ -95,11 +95,11 @@ export function PricingPlansWithCheckout() {
 	};
 
 	return (
-		<div className="py-16 dark:bg-neutral-900">
+		<div className="py-16 dark:bg-gray-950">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="text-center mb-12">
-					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
+					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-4">
 						Choose the Perfect Plan for Your Career
 					</h2>
 					<p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
@@ -111,7 +111,7 @@ export function PricingPlansWithCheckout() {
 						<span
 							className={
 								!isYearly
-									? "font-semibold text-gray-900 dark:text-gray-200"
+									? "font-semibold text-gray-900 dark:text-gray-300"
 									: "text-gray-500 dark:text-gray-400"
 							}
 						>
@@ -124,7 +124,7 @@ export function PricingPlansWithCheckout() {
 						<span
 							className={
 								isYearly
-									? "font-semibold text-gray-900 dark:text-gray-200"
+									? "font-semibold text-gray-900 dark:text-gray-300"
 									: "text-gray-500 dark:text-gray-400"
 							}
 						>
@@ -146,8 +146,8 @@ export function PricingPlansWithCheckout() {
 							key={plan.id}
 							className={`relative ${
 								plan.popular
-									? "border-blue-500 shadow-lg scale-105"
-									: "border-gray-200 hover:border-gray-300"
+									? "border-blue-500 shadow-lg dark:shadow-blue-600/50 dark:hover:shadow-xl dark:hover:shadow-blue-500/60 scale-105"
+									: "border-gray-200 dark:shadow-lg dark:shadow-gray-600/80 hover:border-gray-300 dark:hover:shadow-xl dark:hover:shadow-gray-500/60"
 							} transition-all duration-300`}
 						>
 							{plan.popular && (
@@ -168,7 +168,7 @@ export function PricingPlansWithCheckout() {
 								</CardDescription>
 
 								<div className="mt-6">
-									<div className="text-4xl font-bold text-gray-900 dark:text-gray-200">
+									<div className="text-4xl font-bold text-gray-900 dark:text-gray-300">
 										$
 										{isYearly
 											? plan.yearlyPrice
@@ -223,7 +223,7 @@ export function PricingPlansWithCheckout() {
 								)}
 
 								<div className="space-y-3">
-									<h4 className="font-semibold text-sm text-gray-900 dark:text-gray-200">
+									<h4 className="font-semibold text-sm text-gray-900 dark:text-gray-300">
 										What's included:
 									</h4>
 									{plan.features.map((feature, index) => (

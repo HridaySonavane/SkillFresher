@@ -7,7 +7,7 @@ import { PricingPlansWithCheckout } from "@/components/pricing/pricing-plans-wit
 
 export default function PricingPage() {
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:bg-neutral-900">
+		<div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:bg-gray-950">
 			<PricingHeader />
 			<PricingPlansWithCheckout />
 			<PricingComparison />

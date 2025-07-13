@@ -57,11 +57,11 @@ export function LandingFeatures() {
 	return (
 		<section
 			id="features"
-			className="py-20 bg-gray-50 dark:bg-gradient-to-t from-gray-900 to-neutral-900"
+			className="py-20 bg-gradient-to-b from-gray-200 dark:bg-none dark:bg-gray-950"
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center mb-16">
-					<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 mb-4">
+					<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-300 mb-4">
 						Everything you need to build the perfect resume
 					</h2>
 					<p className="text-xl text-gray-600 dark:text-gray-500 max-w-3xl mx-auto">

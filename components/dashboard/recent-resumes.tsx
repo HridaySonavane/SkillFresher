@@ -79,10 +79,12 @@ export function RecentResumes({ userId }: RecentResumesProps) {
 	}
 
 	return (
-		<Card>
+		<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
 			<CardHeader className="flex flex-row items-center justify-between">
-				<CardTitle>Recent Resumes</CardTitle>
-				<Button size="sm" asChild>
+				<CardTitle className="dark:text-gray-200">
+					Recent Resumes
+				</CardTitle>
+				<Button className="dark:bg-gray-200" size="sm" asChild>
 					<a href={`/create-resume/${userId}`}>
 						<Plus className="w-4 h-4 mr-2" />
 						New Resume
@@ -93,10 +95,10 @@ export function RecentResumes({ userId }: RecentResumesProps) {
 				{resumes.length === 0 ? (
 					<div className="text-center py-8">
 						<FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-						<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 mb-1">
+						<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-300 mb-1">
 							No resumes yet
 						</h3>
-						<p className="text-gray-600 dark:text-gray-400 mb-4">
+						<p className="text-gray-600 dark:text-gray-500 mb-4">
 							Create your first resume to get started.
 						</p>
 						<Button asChild>

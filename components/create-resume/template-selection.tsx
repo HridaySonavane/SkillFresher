@@ -144,13 +144,13 @@ export function TemplateSelection({
 		searchTerm || selectedCategory !== "all" || showPremiumOnly;
 
 	return (
-		<div className="h-full overflow-y-auto p-6 dark:bg-neutral-900">
+		<div className="h-full overflow-y-auto p-6 dark:bg-gray-950">
 			<div className="max-w-6xl mx-auto space-y-6">
 				{/* Header */}
 				<div className="text-center">
 					<div className="flex items-center justify-center gap-2 mb-4">
 						<Sparkles className="w-6 h-6 text-blue-600" />
-						<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200">
+						<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300">
 							Choose Your Template
 						</h2>
 						<Sparkles className="w-6 h-6 text-blue-600" />
@@ -292,7 +292,7 @@ export function TemplateSelection({
 								<CardContent className="p-0">
 									{/* Template Preview */}
 									<div className="relative aspect-[3/4] overflow-hidden rounded-t-lg bg-gradient-to-br from-gray-100 to-gray-200">
-										<div className="w-full h-full flex items-center justify-center">
+										<div className="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
 											{/* <div className="text-center">
 												<div className="w-16 h-20 bg-white rounded shadow-sm mx-auto mb-2"></div>
 												<span className="text-gray-500 text-xs">
@@ -388,7 +388,7 @@ export function TemplateSelection({
 									{/* Template Info */}
 									<div className="p-4 space-y-3">
 										<div>
-											<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-200">
+											<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-300">
 												{template.name}
 											</h3>
 											<p className="text-sm text-gray-600 dark:text-gray-400 mt-1 truncate">
@@ -490,7 +490,7 @@ export function TemplateSelection({
 										<div className="flex-1 space-y-3">
 											<div>
 												<div className="flex items-center gap-2 mb-1">
-													<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-200">
+													<h3 className="font-semibold text-lg text-gray-900 dark:text-gray-300">
 														{template.name}
 													</h3>
 													<Badge variant="secondary">
@@ -595,8 +595,8 @@ export function TemplateSelection({
 				</div>
 
 				{/* Quick Actions */}
-				<div className="bg-gray-50 dark:bg-neutral-800 rounded-lg p-6">
-					<h3 className="font-semibold text-gray-900 dark:text-gray-200 mb-4">
+				<div className="bg-gray-50 dark:bg-gray-800/75 rounded-lg p-6">
+					<h3 className="font-semibold text-gray-900 dark:text-gray-300 mb-4">
 						Quick Actions
 					</h3>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">

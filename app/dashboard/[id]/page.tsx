@@ -164,7 +164,7 @@ export default function DashboardPage() {
 
 	if (!user) {
 		return (
-			<div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-neutral-900">
+			<div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950">
 				<div className="text-center">
 					<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-200 mb-4">
 						Authentication Required
@@ -192,7 +192,7 @@ export default function DashboardPage() {
 	}
 
 	return (
-		<div className="min-h-screen bg-gray-50 dark:bg-neutral-900">
+		<div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-50 dark:bg-gradient-to-b dark:from-gray-900/75 dark:to-gray-950">
 			<DashboardHeader userId={userId} />
 
 			<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -237,7 +237,7 @@ export default function DashboardPage() {
 						<SubscriptionCard subscription={subscription} />
 
 						{/* Quick Actions */}
-						<Card>
+						<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
 							<CardHeader>
 								<CardTitle className="text-lg">
 									Quick Actions
@@ -245,7 +245,7 @@ export default function DashboardPage() {
 							</CardHeader>
 							<CardContent className="space-y-3">
 								<Button
-									className="w-full justify-start"
+									className="w-full justify-start dark:bg-gray-200"
 									size="sm"
 									asChild
 								>
@@ -256,7 +256,7 @@ export default function DashboardPage() {
 								</Button>
 								<Button
 									variant="outline"
-									className="w-full justify-start bg-transparent"
+									className="w-full justify-start bg-transparent dark:text-gray-200"
 									size="sm"
 									asChild
 								>
@@ -267,7 +267,7 @@ export default function DashboardPage() {
 								</Button>
 								<Button
 									variant="outline"
-									className="w-full justify-start bg-transparent"
+									className="w-full justify-start bg-transparent dark:text-gray-200"
 									size="sm"
 								>
 									<Sparkles className="w-4 h-4 mr-2" />
@@ -277,7 +277,7 @@ export default function DashboardPage() {
 						</Card>
 
 						{/* Tips & Resources */}
-						<Card>
+						<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
 							<CardHeader>
 								<CardTitle className="text-lg">
 									Tips & Resources

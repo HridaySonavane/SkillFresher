@@ -196,7 +196,7 @@ export function SignInForm() {
 					<Separator className="w-full" />
 				</div>
 				<div className="relative flex justify-center text-xs uppercase">
-					<span className="bg-white dark:bg-neutral-900 px-2 text-gray-500 dark:text-gray-400">
+					<span className="bg-white dark:bg-gray-950 px-2 text-gray-500 dark:text-gray-400">
 						Or continue with email
 					</span>
 				</div>

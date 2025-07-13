@@ -129,10 +129,10 @@ export default function CheckoutPage() {
 	}
 
 	return (
-		<div className="min-h-screen bg-gray-50 dark:bg-neutral-900">
+		<div className="min-h-screen bg-gray-50 dark:bg-gray-950">
 			<CheckoutHeader />
 
-			<div className="max-w-6xl mx-auto px-4 py-8 dark:bg-neutral-900">
+			<div className="max-w-6xl mx-auto px-4 py-8 dark:bg-gray-950">
 				<CheckoutSteps currentStep={currentStep} />
 
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">

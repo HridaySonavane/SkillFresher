@@ -85,7 +85,7 @@ export default function CreateResumePage() {
 
 	return (
 		<div
-			className={`min-h-screen bg-gray-50 dark:bg-neutral-900 ${!resumeData && "w-full"}`}
+			className={`min-h-screen bg-gray-50 dark:bg-gray-950 ${!resumeData && "w-full"}`}
 		>
 			<ResumeHeader
 				currentStep={currentStep}
@@ -138,10 +138,10 @@ export default function CreateResumePage() {
 						{currentStep === "preview" && (
 							<div className="h-full flex items-center justify-center">
 								<div className="text-center">
-									<h2 className="text-2xl font-bold text-gray-900 mb-4">
+									<h2 className="text-2xl font-bold text-gray-900 dark:text-gray-200 mb-4">
 										Resume Created Successfully!
 									</h2>
-									<p className="text-gray-600 mb-6">
+									<p className="text-gray-600 dark:text-gray-400 mb-6">
 										Your resume is ready for download and
 										sharing.
 									</p>

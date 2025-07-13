@@ -36,7 +36,7 @@ export function CheckoutSteps({ currentStep }: CheckoutStepsProps) {
 							</div>
 							<div className="ml-3">
 								<p
-									className={`text-sm font-medium ${step.id <= currentStep ? "text-gray-900 dark:text-gray-200" : "text-gray-500 dark:text-gray-400"}`}
+									className={`text-sm font-medium ${step.id <= currentStep ? "text-gray-900 dark:text-gray-300" : "text-gray-500 dark:text-gray-400"}`}
 								>
 									{step.name}
 								</p>
