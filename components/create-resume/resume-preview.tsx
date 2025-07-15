@@ -18,7 +18,8 @@ export function ResumePreview({
 	templateId,
 	data,
 	currentStep,
-}: ResumePreviewProps) {
+	isPdf = false
+}: ResumePreviewProps  & { isPdf?: boolean }) {
 	const [scale, setScale] = useState(1);
 
 	const zoomIn = () => setScale(Math.min(scale + 0.1, 2));
@@ -36,15 +37,6 @@ export function ResumePreview({
 	const renderTemplate = () => {
 		switch (templateId) {
 			case "modern-professional":
-				const templateData = () => {
-					fetch(`/api/templates/${templateId}`)
-						.then((res) => res.json())
-						.then((data) => {
-							console.log("Template Data:", data);
-							return data;
-						});
-				};
-				templateData();
 				return <ModernProfessionalTemplate data={data} />;
 			case "creative-designer":
 				return <CreativeDesignerTemplate data={data} />;
@@ -98,28 +90,30 @@ export function ResumePreview({
 	return (
 		<div className="h-full w-full flex flex-col border-none">
 			{/* Preview Controls */}
-			<div className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-950 border-gray-200 dark:border-neutral-800">
-				<div className="flex items-center gap-2">
-					<Button variant="outline" size="sm" onClick={zoomOut}>
-						<ZoomOut className="w-4 h-4" />
-					</Button>
-					<span className="text-sm font-medium w-16 text-center">
-						{Math.round(scale * 100)}%
-					</span>
-					<Button variant="outline" size="sm" onClick={zoomIn}>
-						<ZoomIn className="w-4 h-4" />
-					</Button>
-					<Button variant="outline" size="sm" onClick={resetZoom}>
-						<RotateCcw className="w-4 h-4" />
-					</Button>
-				</div>
-				{currentStep === "preview" && (
-					<Button size="sm">
-						<Download className="w-4 h-4 mr-2" />
-						Download
-					</Button>
-				)}
-			</div>
+			{!isPdf && (
+  <div className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-950 border-gray-200 dark:border-neutral-800">
+    <div className="flex items-center gap-2">
+      <Button variant="outline" size="sm" onClick={zoomOut}>
+        <ZoomOut className="w-4 h-4" />
+      </Button>
+      <span className="text-sm font-medium w-16 text-center">
+        {Math.round(scale * 100)}%
+      </span>
+      <Button variant="outline" size="sm" onClick={zoomIn}>
+        <ZoomIn className="w-4 h-4" />
+      </Button>
+      <Button variant="outline" size="sm" onClick={resetZoom}>
+        <RotateCcw className="w-4 h-4" />
+      </Button>
+    </div>
+    {currentStep === "preview" && (
+      <Button size="sm">
+        <Download className="w-4 h-4 mr-2" />
+        Download
+      </Button>
+    )}
+  </div>
+)}
 
 			{/* Preview Area */}
 			{/* <div className="flex-1 overflow-auto p-6 bg-gray-100">
@@ -160,11 +154,12 @@ export function ResumePreview({
 
 			{currentStep === "preview" && (
 				<div
-					className=" flex-1 overflow-auto bg-white shadow-lg"
+					// ref={pdfRef}
+					className=" flex-1 bg-white shadow-lg"
 					style={{
-						transform: `scale(${scale})`,
-						transformOrigin: "top center",
-						// width: "210mm", // A4 width
+						// transform: `scale(${scale})`,
+						// transformOrigin: "top center",
+						width: "210mm", // A4 width
 						minHeight: "297mm", // A4 height
 					}}
 				>

@@ -43,8 +43,8 @@ const categories = [
 	},
 ];
 
-export function TemplateCategories() {
-	const [activeCategory, setActiveCategory] = useState("all");
+export function TemplateCategories({ selectedCategory, setSelectedCategory }) {
+	// const [activeCategory, setActiveCategory] = useState("all");
 
 	return (
 		<div className="space-y-6 dark:bg-gray-950">
@@ -61,17 +61,13 @@ export function TemplateCategories() {
 				{categories.map((category) => (
 					<Button
 						key={category.id}
-						variant={
-							activeCategory === category.id
-								? "default"
-								: "outline"
-						}
+						variant={selectedCategory === category.id ? "default" : "outline"}
 						className={`h-auto p-4 flex flex-col items-center gap-2 ${
-							activeCategory === category.id
+							selectedCategory === category.id
 								? ""
 								: "bg-transparent hover:bg-gray-50"
 						}`}
-						onClick={() => setActiveCategory(category.id)}
+						onClick={() => setSelectedCategory(category.id)}
 					>
 						<div className="flex items-center gap-2">
 							{category.icon}

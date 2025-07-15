@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useParams } from "next/navigation";
 import { ResumeHeader } from "@/components/create-resume/resume-header";
 import { TemplateSelection } from "@/components/create-resume/template-selection";
@@ -9,10 +8,13 @@ import { ResumePreview } from "@/components/create-resume/resume-preview";
 import { CreateResumeSidebar } from "@/components/create-resume/create-resume-sidebar";
 import type { ResumeData } from "@/lib/document-generators/types";
 import { useTemplateData } from "@/hooks/use-template-data";
+import React, { useState } from "react";
+import { insertResume } from "@/lib/resume/fetchResumeData";
 
 export default function CreateResumePage() {
 	const params = useParams();
 	const userId = params.userId as string;
+	console.log("User Id:", userId);
 
 	const [selectedTemplate, setSelectedTemplate] = useState(
 		"modern-professional"
@@ -83,6 +85,24 @@ export default function CreateResumePage() {
 
 	const { template, loading } = useTemplateData(selectedTemplate);
 
+	const handleDownloadPdf = async () => {
+		try {
+			const inserted = await insertResume(
+				userId,
+				resumeData,
+				selectedTemplate,
+				"new resume"
+			);
+			const resumeId = inserted.id;
+			const url = encodeURIComponent(
+				`http://localhost:3000/pdf-preview/${resumeId}?pdf=1`
+			);
+			window.open(`/api/generate-resume?url=${url}`, "_blank");
+		} catch (err) {
+			alert("Failed to save resume: " + err.message);
+		}
+	};
+
 	return (
 		<div
 			className={`min-h-screen bg-gray-50 dark:bg-gray-950 ${!resumeData && "w-full"}`}
@@ -146,7 +166,10 @@ export default function CreateResumePage() {
 										sharing.
 									</p>
 									<div className="space-x-4">
-										<button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+										<button
+											className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+											onClick={handleDownloadPdf}
+										>
 											Download PDF
 										</button>
 										<button

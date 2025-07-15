@@ -14,7 +14,7 @@ interface SubscriptionCardProps {
 export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 	if (!subscription) {
 		return (
-			<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
+			<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70 dark:hover:shadow-md dark:hover:shadow-gray-800/80 transition-shadow duration-300">
 				<CardHeader>
 					<CardTitle className="text-lg flex items-center gap-2">
 						<AlertCircle className="w-5 h-5 text-amber-500" />
@@ -59,7 +59,7 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 	const planName = planNames[subscription.plan_id] || subscription.plan_id;
 
 	return (
-		<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
+		<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70 dark:hover:shadow-md dark:hover:shadow-gray-800/80 transition-shadow duration-300">
 			<CardHeader>
 				<CardTitle className="text-lg dark:text-gray-100 flex items-center gap-2">
 					<Crown className="w-5 h-5 text-yellow-500" />

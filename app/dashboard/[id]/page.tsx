@@ -237,7 +237,7 @@ export default function DashboardPage() {
 						<SubscriptionCard subscription={subscription} />
 
 						{/* Quick Actions */}
-						<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
+						<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70 dark:hover:shadow-md dark:hover:shadow-gray-800/80 transition-shadow duration-300">
 							<CardHeader>
 								<CardTitle className="text-lg">
 									Quick Actions
@@ -277,7 +277,7 @@ export default function DashboardPage() {
 						</Card>
 
 						{/* Tips & Resources */}
-						<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
+						<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70 dark:hover:shadow-md dark:hover:shadow-gray-800/80 transition-shadow duration-300">
 							<CardHeader>
 								<CardTitle className="text-lg">
 									Tips & Resources

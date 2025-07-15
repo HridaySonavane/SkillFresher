@@ -21,7 +21,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={inter.className}>
+			<body
+				className={`${inter.className} bg-[#f0eeeb] dark:bg-gray-900`}
+			>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
@@ -30,9 +32,9 @@ export default function RootLayout({
 				>
 					{/* <ClientOnly> */}
 					<AuthProvider>
-						<div className="fixed z-[100] top-4 left-4">
+						{/* <div className="fixed z-[100] top-4 left-4">
 							<ModeToggle />
-						</div>
+						</div> */}
 						{children}
 					</AuthProvider>
 					{/* </ClientOnly> */}

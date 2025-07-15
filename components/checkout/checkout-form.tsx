@@ -90,11 +90,11 @@ export function CheckoutForm({ plan, onStepChange }: CheckoutFormProps) {
 			onStepChange(2);
 		} else if (currentStep === 2 && validateStep2()) {
 			// Sign up the user before proceeding to payment
-			setCurrentStep(3);
-			onStepChange(3);
-			// const signupSuccess = await handleSignup();
-			// if (signupSuccess) {
-			// }
+			const signupSuccess = await handleSignup();
+			if (signupSuccess) {
+				setCurrentStep(3);
+				onStepChange(3);
+			}
 		}
 	};
 
@@ -154,7 +154,10 @@ export function CheckoutForm({ plan, onStepChange }: CheckoutFormProps) {
 
 	const handleSignup = async () => {
 		const { email, password } = formData;
-		const { error } = await supabase.auth.signUp({ email, password });
+		const { error } = await supabase.auth.signInWithPassword({
+			email,
+			password,
+		});
 		if (error) {
 			setErrors({ general: error.message });
 			return false;

@@ -57,7 +57,7 @@ export function LandingFeatures() {
 	return (
 		<section
 			id="features"
-			className="py-20 bg-gradient-to-b from-gray-200 dark:bg-none dark:bg-gray-950"
+			className="py-20 bg-gradient-to-t from-[#dedcd9] dark:bg-none dark:bg-gray-950"
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center mb-16">

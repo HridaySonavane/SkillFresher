@@ -3,12 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, BookOpen } from "lucide-react";
-import { ResumePreview } from "./resume-preview";
+import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Image from "next/image";
 
 export function LandingHero() {
 	return (
-		<section className="relative overflow-hidden py-20 lg:py-32 bg-gray-200 dark:bg-gradient-to-b from-gray-900 to-gray-950">
+		<section className="relative overflow-hidden py-20 lg:py-32 bg-[#f0eeeb] dark:bg-gradient-to-b from-gray-900 to-gray-950">
 			{/* Background Elements */}
 			{/* <div className="absolute inset-0">
 				<div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-50/70 to-transparent rounded-full blur-3xl opacity-70" />
@@ -103,8 +103,28 @@ export function LandingHero() {
 						</div>
 					</div>
 					{/* Right Column - Resume Preview */}
-					<div className="absolute top-auto right-0 translate-x-72 h-[70%] aspect-video drop-shadow-2xl drop-shadow-gray-500 dark:drop-shadow-stone-800 rounded-lg overflow-hidden">
-						<Image src={"/Untitled.png"} alt="photo" fill />
+					<div className="absolute top-auto right-0 translate-x-72 h-[70%] aspect-video drop-shadow-2xl drop-shadow-gray-500 dark:drop-shadow-stone-800 rounded-lg">
+						<CardContainer
+							className="w-full h-full"
+							containerClassName="w-full h-full py-0"
+						>
+							<CardBody className="w-full h-full group/card">
+								<CardItem
+									translateZ="50"
+									// rotateX={20}
+									// rotateY={20}
+									// rotateZ={-10}
+									className="w-full mt-4"
+								>
+									<Image
+										src={"/Untitled.png"}
+										alt="photo"
+										width={1200}
+										height={1200}
+									/>
+								</CardItem>
+							</CardBody>
+						</CardContainer>
 					</div>
 				</div>
 			</div>

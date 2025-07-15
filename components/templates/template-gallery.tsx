@@ -16,7 +16,7 @@ import {
 	DialogTrigger,
 } from "../ui/dialog";
 
-export function TemplateGallery() {
+export function TemplateGallery({ selectedCategory, setSelectedCategory }) {
 	const [selectedTemplate, setSelectedTemplate] = useState<string | null>(
 		null
 	);
@@ -29,6 +29,13 @@ export function TemplateGallery() {
 			.then((res) => res.json())
 			.then(setTemplates);
 	}, []);
+
+	// const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+	const filteredTemplates = templates.filter((template) => {
+		if (!selectedCategory || selectedCategory === "all") return true;
+		return template.category === selectedCategory;
+	});
 
 	// const handlePreview = (templateId: string) => {
 	// 	setSelectedTemplate(templateId);
@@ -88,7 +95,7 @@ export function TemplateGallery() {
 						: "space-y-4"
 				}
 			>
-				{templates.map((template) => (
+				{filteredTemplates.map((template) => (
 					<Card
 						key={template.id}
 						className="group hover:shadow-lg transition-shadow duration-300 py-0"
@@ -223,13 +230,17 @@ export function TemplateGallery() {
 									>
 										{template.is_premium ? (
 											<>
-												<Crown className="w-4 h-4 mr-1" />
-												Use Premium
+												<Link href="/auth/signup">
+													{/* <Crown className="w-4 h-4 mr-1" /> */}
+													Use Premium
+												</Link>
 											</>
 										) : (
 											<>
-												<Sparkles className="w-4 h-4 mr-1" />
-												Use Free
+												<Link href="/auth/signup">
+													{/* <Sparkles className="w-4 h-4 mr-1" /> */}
+													Use Free
+												</Link>
 											</>
 										)}
 									</Button>

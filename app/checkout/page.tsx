@@ -81,6 +81,37 @@ const plans: Record<string, PlanDetails> = {
 			"Save 17% with annual billing",
 		],
 	},
+	enterprise_monthly: {
+		id: "professional",
+		name: "Professional",
+		price: 49.99,
+		interval: "month",
+		priceId:
+			process.env.NEXT_PUBLIC_STRIPE_ENTERPRISE_MONTHLY_PRICE_ID || "",
+		features: [
+			"Unlimited resume downloads",
+			"All premium templates",
+			"AI-powered suggestions",
+			"PDF & DOCX export",
+			"Priority support",
+		],
+	},
+	enterprise_yearly: {
+		id: "professional",
+		name: "Professional",
+		price: 499.99,
+		interval: "year",
+		priceId:
+			process.env.NEXT_PUBLIC_STRIPE_ENTERPRISE_YEARLY_PRICE_ID || "",
+		features: [
+			"Unlimited resume downloads",
+			"All premium templates",
+			"AI-powered suggestions",
+			"PDF & DOCX export",
+			"Priority support",
+			"Save 17% with annual billing",
+		],
+	},
 };
 
 export default function CheckoutPage() {

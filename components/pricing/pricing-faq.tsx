@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "../ui/accordion";
 
 const faqs = [
 	{
@@ -40,12 +46,6 @@ const faqs = [
 ];
 
 export function PricingFAQ() {
-	const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-	const toggleFAQ = (index: number) => {
-		setOpenIndex(openIndex === index ? null : index);
-	};
-
 	return (
 		<div className="py-16 bg-gray-50 dark:bg-gradient-to-t from-gray-900 to-gray-950">
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,34 +60,49 @@ export function PricingFAQ() {
 
 				<div className="space-y-2">
 					{faqs.map((faq, index) => (
-						<Card
-							key={index}
-							className="border-0 shadow-sm dark:bg-transparent/70 dark:backdrop-blur-md dark:inset-ring-1 dark:inset-ring-gray-800/70 dark:rounded-lg transition-shadow duration-300"
-						>
-							<CardContent className="p-0">
-								<button
-									className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-transparent transition-colors"
-									onClick={() => toggleFAQ(index)}
-								>
-									<span className="font-semibold text-gray-900 dark:text-gray-300 pr-4">
-										{faq.question}
-									</span>
-									{openIndex === index ? (
-										<ChevronUp className="w-5 h-5 text-gray-500 dark:text-gray-300 flex-shrink-0" />
-									) : (
-										<ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-300 flex-shrink-0" />
-									)}
-								</button>
+						// <Card
+						// 	key={index}
+						// 	className="border-0 shadow-sm dark:bg-transparent/70 dark:backdrop-blur-md dark:inset-ring-1 dark:inset-ring-gray-800/70 dark:rounded-lg transition-shadow duration-300"
+						// >
+						// 	<CardContent className="p-0">
+						// 		<button
+						// 			className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-transparent transition-colors"
+						// 			onClick={() => toggleFAQ(index)}
+						// 		>
+						// 			<span className="font-semibold text-gray-900 dark:text-gray-300 pr-4">
+						// 				{faq.question}
+						// 			</span>
+						// 			{openIndex === index ? (
+						// 				<ChevronUp className="w-5 h-5 text-gray-500 dark:text-gray-300 flex-shrink-0" />
+						// 			) : (
+						// 				<ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-300 flex-shrink-0" />
+						// 			)}
+						// 		</button>
 
-								{openIndex === index && (
-									<div className="px-6 pb-4">
-										<p className="text-gray-700 dark:text-gray-500 leading-relaxed">
-											{faq.answer}
-										</p>
-									</div>
-								)}
-							</CardContent>
-						</Card>
+						// 		{openIndex === index && (
+						// 			<div className="px-6 pb-4">
+						// 				<p className="text-gray-700 dark:text-gray-500 leading-relaxed">
+						// 					{faq.answer}
+						// 				</p>
+						// 			</div>
+						// 		)}
+						// 	</CardContent>
+						// </Card>
+						<Accordion
+							className="border-0 shadow-sm dark:bg-transparent/70 dark:backdrop-blur-md dark:border-b dark:border-gray-800 transition-shadow duration-300"
+							key={index}
+							type="single"
+							collapsible
+						>
+							<AccordionItem value="item-1">
+								<AccordionTrigger>
+									{faq.question}
+								</AccordionTrigger>
+								<AccordionContent>
+									{faq.answer}
+								</AccordionContent>
+							</AccordionItem>
+						</Accordion>
 					))}
 				</div>
 

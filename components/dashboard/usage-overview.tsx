@@ -58,7 +58,7 @@ export function UsageOverview({ usage, subscription }: UsageOverviewProps) {
 	];
 
 	return (
-		<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70">
+		<Card className="dark:bg-gray-950 dark:inset-ring-1 dark:inset-ring-gray-700/70 dark:hover:shadow-md dark:hover:shadow-gray-800/80 transition-shadow duration-300">
 			<CardHeader className="flex flex-row items-center justify-between">
 				<CardTitle className="text-xl dark:text-gray-200">
 					Usage Overview
