@@ -1,19 +1,95 @@
-import { PricingTable } from "@/components/subscription/pricing-table";
+// import { PricingTable } from "@/components/subscription/pricing-table";
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function LandingTemplate() {
+	const templates = [
+		{
+			image: "/project%20image/resume%20%281%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%282%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%283%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%284%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%285%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%286%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%287%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%288%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume%20%289%29_page-0001.jpg",
+		},
+		{
+			image: "/project%20image/resume-10.jpg",
+		},
+	];
+
+	const sliderVariant = {
+		initial: {
+			x: 0,
+		},
+		animate: {
+			x: "-220%",
+			transition: {
+				duration: 30,
+				repeat: Infinity,
+				repeatType: "mirror" as const,
+			},
+		},
+	};
+
 	return (
-		<section id="pricing" className="py-20">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="text-center mb-16">
-					<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-						Simple, transparent pricing
-					</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
-						Start free and upgrade when you need more features. No
-						hidden fees, no surprises.
-					</p>
+		<section id="pricing" className="h-screen">
+			<div className="container relative mx-auto w-full h-full overflow-hidden">
+				{/* text container */}
+				<div className="border border-red-500 w-full h-full hidden flex-col items-baseline justify-center bg-gradient-to-r from-red-400 via-50% via-red-400 to-55% to-transparent">
+					{/* text section */}
+					<div className="border border-blue-700 max-w-xl text-center">
+						<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+							Free Resume Templates
+						</h2>
+						<p className="text-base text-gray-600 max-w-xl mx-auto">
+							Stop worrying about formatting—our modern, ATS-ready
+							templates help you create a professional resume that
+							stands out at any career level.
+						</p>
+					</div>
 				</div>
-				<PricingTable />
+				<motion.div
+					className="absolute left-0 top-0 py-20 w-full h-full flex items-center justify-between gap-6 border-2 border-blue-700 -z-10"
+					variants={sliderVariant}
+					initial="initial"
+					animate="animate"
+				>
+					{templates.map((template, i) => (
+						<Image
+							key={i}
+							src={template.image}
+							alt="template"
+							width={1000}
+							height={1000}
+							// fill
+							className="object-contain w-full h-full"
+							// sizes="100%"
+						/>
+						// <div key={i} className="aspe w-fit h-full bg-blue-400">
+						// </div>
+					))}
+				</motion.div>
 			</div>
 		</section>
 	);

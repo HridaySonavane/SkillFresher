@@ -1,5 +1,5 @@
 import { LandingFooter } from "@/components/landing/landing-footer";
-import { LandingPricing } from "@/components/landing/landing-pricing";
+import { LandingTemplate } from "@/components/landing/landing-template";
 import { LandingFeatures } from "@/components/landing/landing-features";
 import { LandingHero } from "@/components/landing/landing-hero";
 import { LandingHeader } from "@/components/landing/landing-header";
@@ -10,7 +10,7 @@ export default function Home() {
 			<LandingHeader />
 			<LandingHero />
 			<LandingFeatures />
-			{/* <LandingPricing /> */}
+			<LandingTemplate />
 			<LandingFooter />
 		</div>
 	);
