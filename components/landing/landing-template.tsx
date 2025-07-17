@@ -40,12 +40,12 @@ export function LandingTemplate() {
 
 	const sliderVariant = {
 		initial: {
-			x: 0,
+			x: "50%",
 		},
 		animate: {
 			x: "-220%",
 			transition: {
-				duration: 30,
+				duration: 50,
 				repeat: Infinity,
 				repeatType: "mirror" as const,
 			},
@@ -56,13 +56,13 @@ export function LandingTemplate() {
 		<section id="pricing" className="h-screen">
 			<div className="container relative mx-auto w-full h-full overflow-hidden">
 				{/* text container */}
-				<div className="border border-red-500 w-full h-full hidden flex-col items-baseline justify-center bg-gradient-to-r from-red-400 via-50% via-red-400 to-55% to-transparent">
+				<div className="w-full h-full flex flex-col items-baseline justify-center bg-gradient-to-r from-[#f0eeeb] dark:from-gray-950 via-50% via-[#f0eeeb] dark:via-gray-950 to-55% to-transparent">
 					{/* text section */}
-					<div className="border border-blue-700 max-w-xl text-center">
-						<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+					<div className="max-w-xl text-center ml-20">
+						<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 mb-4">
 							Free Resume Templates
 						</h2>
-						<p className="text-base text-gray-600 max-w-xl mx-auto">
+						<p className="text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
 							Stop worrying about formatting—our modern, ATS-ready
 							templates help you create a professional resume that
 							stands out at any career level.
@@ -70,7 +70,7 @@ export function LandingTemplate() {
 					</div>
 				</div>
 				<motion.div
-					className="absolute left-0 top-0 py-20 w-full h-full flex items-center justify-between gap-6 border-2 border-blue-700 -z-10"
+					className="absolute left-0 top-0 py-20 w-full h-full flex items-center justify-between gap-6 -z-10"
 					variants={sliderVariant}
 					initial="initial"
 					animate="animate"
