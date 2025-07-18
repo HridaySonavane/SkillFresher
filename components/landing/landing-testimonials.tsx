@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Key } from "lucide-react";
 
 export function LandingTestimonial() {
 	const testimonials = {
@@ -60,8 +61,8 @@ export function LandingTestimonial() {
 	};
 
 	return (
-		<section id="pricing" className="h-screen mx-20 mb-20">
-			<div className="container h-full flex flex-col pb-20">
+		<section id="pricing" className="h-screen mx-20">
+			<div className="container h-full flex flex-col">
 				<div className="flex-1/5 flex flex-col items-center justify-center">
 					<div className="max-w-[45rem] flex flex-col items-center">
 						<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 mb-4">
@@ -78,40 +79,48 @@ export function LandingTestimonial() {
 				</div>
 				<div className="flex-4/5 h-full grid grid-cols-3 gap-10 mt-10">
 					<div className="grid grid-cols-1 grid-rows-7 grid-flow-col gap-10">
+						{/* {testimonials.section1.map((testimonial, i) => (
+						))} */}
 						{testimonials.section1.map((testimonial, i) => (
 							<div
 								key={i}
 								className={`bg-card dark:bg-neutral-800/60 rounded-lg row-span-${i === 1 ? 3 : 2}`}
 							>
 								<div className="p-6">
-									<p>{testimonial.desc}</p>
-									<h3>{testimonial.name}</h3>
+									<h2>{testimonial.desc}</h2>
+									<p>{testimonial.name}</p>
 								</div>
 							</div>
 						))}
 					</div>
-					<div className="grid grid-cols-1 grid-rows-10 grid-flow-col gap-6">
+					<div className="grid grid-cols-1 grid-rows-10 grid-flow-col gap-10 pt-4">
 						{testimonials.section2.map((testimonial, i) => (
 							<div
 								key={i}
 								className="bg-card dark:bg-neutral-800/60 rounded-lg row-span-4"
 							>
 								<div className="p-6">
-									<p>{testimonial.desc}</p>
-									<h3>{testimonial.name}</h3>
+									<h2>{testimonial.desc}</h2>
+									<p>{testimonial.name}</p>
 								</div>
 							</div>
 						))}
+						{/* <div className="bg-card dark:bg-neutral-800/60 rounded-lg row-span-4">
+							<div className="p-6">
+								<h2>desc</h2>
+								<p>name</p>
+							</div>
+						</div> */}
 					</div>
-					<div className="grid grid-cols-1 grid-rows-7 grid-flow-col gap-6">
-						{testimonials.section3.map((testimonial, i) => (
+					<div className="grid grid-cols-1 grid-rows-7 grid-flow-col gap-10">
+						{testimonials.section1.map((testimonial, i) => (
 							<div
 								key={i}
 								className={`bg-card dark:bg-neutral-800/60 rounded-lg row-span-${i === 1 ? 3 : 2}`}
 							>
 								<div className="p-6">
-									<p>{testimonial.desc}</p>
-									<h3>{testimonial.name}</h3>
+									<h2>{testimonial.desc}</h2>
+									<p>{testimonial.name}</p>
 								</div>
 							</div>
 						))}

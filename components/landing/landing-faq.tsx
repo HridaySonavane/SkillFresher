@@ -44,7 +44,7 @@ export function LandingFaq() {
 	};
 
 	return (
-		<section id="pricing" className="h-screen mx-20">
+		<section className="h-screen mx-20">
 			<div className="container h-full flex items-center">
 				<div className="h-[60%] flex items-center justify-between gap-12">
 					<div className="flex-1/3 flex flex-col items-center justify-center">

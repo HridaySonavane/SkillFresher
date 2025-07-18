@@ -50,7 +50,7 @@ const logos = [
 
 export function LandingShowcase() {
 	return (
-		<section className="h-[80vh] mx-20">
+		<section className="h-[80vh] px-20 dark:bg-gradient-to-b dark:from-black">
 			<div className="container h-full flex flex-col items-center justify-center gap-12">
 				<div className="flex-2/3 w-full flex flex-col justify-center items-center gap-12">
 					<h3>
