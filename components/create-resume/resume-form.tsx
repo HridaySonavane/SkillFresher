@@ -47,6 +47,9 @@ export function ResumeForm({
 		setSkillsInput(data.skills.join(", "));
 	}, [data.skills]);
 
+	// Add state for loadingSummary at the top of the component
+	const [loadingSummary, setLoadingSummary] = useState(false);
+
 	const sections = [
 		{ id: "personal", label: "Personal Info", icon: User, required: true },
 		{ id: "summary", label: "Summary", icon: Star, required: false },
@@ -434,16 +437,44 @@ export function ResumeForm({
 								<Textarea
 									id="summary"
 									value={data.summary}
-									onChange={(e) =>
-										updateSummary(e.target.value)
-									}
+									onChange={(e) => updateSummary(e.target.value)}
 									placeholder="Write a compelling professional summary..."
 									rows={6}
 								/>
 								<p className="text-sm text-gray-500">
-									A brief overview of your professional
-									background and key strengths
+									A brief overview of your professional background and key strengths
 								</p>
+								<Button
+									type="button"
+									variant="outline"
+									className="mt-2"
+									disabled={loadingSummary}
+									onClick={async () => {
+										setLoadingSummary(true);
+										try {
+											const res = await fetch("/api/generate-summary", {
+												method: "POST",
+												headers: { "Content-Type": "application/json" },
+												body: JSON.stringify({
+													personalInfo: data.personalInfo,
+													experience: data.experience,
+													education: data.education,
+													skills: data.skills,
+												}),
+											});
+											const result = await res.json();
+											if (result.summary) {
+												updateSummary(result.summary);
+											}
+										} catch (err) {
+											// Optionally handle error
+										} finally {
+											setLoadingSummary(false);
+										}
+									}}
+								>
+									{loadingSummary ? "Generating..." : "Generate Summary with AI"}
+								</Button>
 							</div>
 							<Button
 								onClick={() => handleSectionComplete("summary")}

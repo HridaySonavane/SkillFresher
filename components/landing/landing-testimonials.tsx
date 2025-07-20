@@ -84,7 +84,7 @@ export function LandingTestimonial() {
 						{testimonials.section1.map((testimonial, i) => (
 							<div
 								key={i}
-								className={`bg-card dark:bg-neutral-800/60 rounded-lg row-span-${i === 1 ? 3 : 2}`}
+								className={`bg-card dark:bg-neutral-800/60 rounded-lg ${i === 1 ? "row-span-3" : "row-span-2"}`}
 							>
 								<div className="p-6">
 									<h2>{testimonial.desc}</h2>
@@ -116,7 +116,7 @@ export function LandingTestimonial() {
 						{testimonials.section1.map((testimonial, i) => (
 							<div
 								key={i}
-								className={`bg-card dark:bg-neutral-800/60 rounded-lg row-span-${i === 1 ? 3 : 2}`}
+								className={`bg-card dark:bg-neutral-800/60 rounded-lg ${i === 1 ? "row-span-3" : "row-span-2"}`}
 							>
 								<div className="p-6">
 									<h2>{testimonial.desc}</h2>
