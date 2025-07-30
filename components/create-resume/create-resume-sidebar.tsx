@@ -55,7 +55,7 @@ export function CreateResumeSidebar({
 	};
 
 	return (
-		<div className="h-full w-64 bg-white dark:bg-gray-950 border-r border-b border-gray-200 dark:border-neutral-800 p-4 space-y-6">
+		<div className="flex-1/5 h-full w-full sm:w-64 bg-white dark:bg-gray-950 border-r border-b border-gray-200 dark:border-neutral-800 p-4 space-y-6">
 			{/* Progress */}
 			<div className="space-y-3">
 				<h3 className="font-medium text-gray-900 dark:text-gray-300">

@@ -1,0 +1,6 @@
+# Ignore everything by default
+**
+
+# But don't ignore these files
+!requirements.txt
+!summarizer_api.py

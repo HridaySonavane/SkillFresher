@@ -63,9 +63,9 @@ export function ResumeHeader({
 	};
 
 	return (
-		<header className="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-neutral-800 px-6 py-4">
-			<div className="flex items-center justify-between">
-				<div className="flex items-center gap-4">
+		<header className="w-full bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-neutral-800 px-4 sm:px-6 py-4">
+			<div className="flex flex-col lg:flex-row items-start lg:items-center justify-center gap-4">
+				<div className="flex flex-col sm:flex-row items-start sm:items-center w-full justify-around gap-4">
 					{/* Back Button */}
 					{currentStep === "template" ? (
 						<Button variant="ghost" size="sm" asChild>
@@ -94,11 +94,10 @@ export function ResumeHeader({
 						</Button>
 					)}
 
-					<div className="h-6 w-px bg-gray-300" />
+					<div className="hidden sm:block h-6 w-px bg-gray-300" />
 
-					{/* Title and Description */}
 					<div>
-						<h1 className="text-lg font-semibold text-gray-900 dark:text-gray-300">
+						<h1 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-300">
 							{getStepTitle()}
 						</h1>
 						<p className="text-sm text-gray-500">
@@ -106,10 +105,9 @@ export function ResumeHeader({
 						</p>
 					</div>
 
-					{/* Template Info */}
 					{templateName && currentStep !== "template" && (
 						<>
-							<div className="h-6 w-px bg-gray-300" />
+							<div className="hidden sm:block h-6 w-px bg-gray-300" />
 							<div className="text-sm">
 								<span className="text-gray-500">Template:</span>
 								<span className="font-medium text-gray-900 dark:text-gray-300 ml-1">
@@ -120,13 +118,12 @@ export function ResumeHeader({
 					)}
 				</div>
 
-				<div className="flex items-center gap-4">
-					{/* Progress Indicator */}
+				{/* <div className="flex flex-wrap gap-4 items-center">
 					<div className="flex items-center gap-3">
 						<div className="text-sm text-gray-500 dark:text-gray-600">
 							Step {getStepNumber()} of 3
 						</div>
-						<div className="w-32">
+						<div className="w-24 sm:w-32">
 							<Progress value={progress} className="h-2" />
 						</div>
 						<div className="text-sm font-medium text-gray-900 dark:text-gray-500">
@@ -134,8 +131,7 @@ export function ResumeHeader({
 						</div>
 					</div>
 
-					{/* Action Buttons */}
-					<div className="flex items-center gap-2">
+					<div className="flex flex-wrap gap-2">
 						{currentStep === "form" && (
 							<>
 								<Button variant="outline" size="sm">
@@ -166,12 +162,12 @@ export function ResumeHeader({
 							</>
 						)}
 					</div>
-				</div>
+				</div> */}
 			</div>
 
 			{/* Step Indicator */}
-			<div className="mt-4">
-				<div className="flex items-center justify-center">
+			<div className="mt-6 overflow-x-auto">
+				<div className="flex items-center justify-center min-w-[360px] sm:min-w-0">
 					<div className="flex items-center space-x-4">
 						{[
 							{

@@ -220,7 +220,7 @@ export function ResumeForm({
 
 	return (
 		<div className="h-full flex flex-col items-center overflow-y-auto p-6 dark:bg-gray-950">
-			<div className="max-w-2xl mx-auto space-y-6">
+			<div className="w-full space-y-6">
 				{/* Progress Indicator */}
 				<Card>
 					<CardContent className="px-4 py-0">
@@ -284,7 +284,7 @@ export function ResumeForm({
 				</Card>
 
 				{/* Navigation */}
-				<div className="flex space-x-1 bg-gray-100 dark:bg-neutral-800 p-1 rounded-lg">
+				<div className="flex justify-evenly bg-gray-100 dark:bg-neutral-800 py-1 rounded-lg">
 					{sections.map((section) => {
 						const Icon = section.icon;
 						return (
@@ -297,7 +297,7 @@ export function ResumeForm({
 								}
 								size="sm"
 								onClick={() => setActiveSection(section.id)}
-								className="flex-1"
+								className="flex-1/5"
 							>
 								<Icon className="w-4 h-4 mr-2" />
 								{section.label}
@@ -437,12 +437,15 @@ export function ResumeForm({
 								<Textarea
 									id="summary"
 									value={data.summary}
-									onChange={(e) => updateSummary(e.target.value)}
+									onChange={(e) =>
+										updateSummary(e.target.value)
+									}
 									placeholder="Write a compelling professional summary..."
 									rows={6}
 								/>
 								<p className="text-sm text-gray-500">
-									A brief overview of your professional background and key strengths
+									A brief overview of your professional
+									background and key strengths
 								</p>
 								<Button
 									type="button"
@@ -452,16 +455,25 @@ export function ResumeForm({
 									onClick={async () => {
 										setLoadingSummary(true);
 										try {
-											const res = await fetch("/api/generate-summary", {
-												method: "POST",
-												headers: { "Content-Type": "application/json" },
-												body: JSON.stringify({
-													personalInfo: data.personalInfo,
-													experience: data.experience,
-													education: data.education,
-													skills: data.skills,
-												}),
-											});
+											const res = await fetch(
+												"/api/generate-summary",
+												{
+													method: "POST",
+													headers: {
+														"Content-Type":
+															"application/json",
+													},
+													body: JSON.stringify({
+														personalInfo:
+															data.personalInfo,
+														experience:
+															data.experience,
+														education:
+															data.education,
+														skills: data.skills,
+													}),
+												}
+											);
 											const result = await res.json();
 											if (result.summary) {
 												updateSummary(result.summary);
@@ -473,7 +485,9 @@ export function ResumeForm({
 										}
 									}}
 								>
-									{loadingSummary ? "Generating..." : "Generate Summary with AI"}
+									{loadingSummary
+										? "Generating..."
+										: "Generate Summary with AI"}
 								</Button>
 							</div>
 							<Button

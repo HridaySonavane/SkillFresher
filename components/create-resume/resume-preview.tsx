@@ -18,8 +18,8 @@ export function ResumePreview({
 	templateId,
 	data,
 	currentStep,
-	isPdf = false
-}: ResumePreviewProps  & { isPdf?: boolean }) {
+	isPdf = false,
+}: ResumePreviewProps & { isPdf?: boolean }) {
 	const [scale, setScale] = useState(1);
 
 	const zoomIn = () => setScale(Math.min(scale + 0.1, 2));
@@ -88,32 +88,32 @@ export function ResumePreview({
 	const stepMessage = getStepMessage();
 
 	return (
-		<div className="h-full w-full flex flex-col border-none">
+		<div className="h-full w-full flex flex-col border-none overflow-hidden">
 			{/* Preview Controls */}
 			{!isPdf && (
-  <div className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-950 border-gray-200 dark:border-neutral-800">
-    <div className="flex items-center gap-2">
-      <Button variant="outline" size="sm" onClick={zoomOut}>
-        <ZoomOut className="w-4 h-4" />
-      </Button>
-      <span className="text-sm font-medium w-16 text-center">
-        {Math.round(scale * 100)}%
-      </span>
-      <Button variant="outline" size="sm" onClick={zoomIn}>
-        <ZoomIn className="w-4 h-4" />
-      </Button>
-      <Button variant="outline" size="sm" onClick={resetZoom}>
-        <RotateCcw className="w-4 h-4" />
-      </Button>
-    </div>
-    {currentStep === "preview" && (
-      <Button size="sm">
-        <Download className="w-4 h-4 mr-2" />
-        Download
-      </Button>
-    )}
-  </div>
-)}
+				<div className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-950 border-gray-200 dark:border-neutral-800">
+					<div className="flex items-center gap-2">
+						<Button variant="outline" size="sm" onClick={zoomOut}>
+							<ZoomOut className="w-4 h-4" />
+						</Button>
+						<span className="text-sm font-medium w-16 text-center">
+							{Math.round(scale * 100)}%
+						</span>
+						<Button variant="outline" size="sm" onClick={zoomIn}>
+							<ZoomIn className="w-4 h-4" />
+						</Button>
+						<Button variant="outline" size="sm" onClick={resetZoom}>
+							<RotateCcw className="w-4 h-4" />
+						</Button>
+					</div>
+					{currentStep === "preview" && (
+						<Button size="sm">
+							<Download className="w-4 h-4 mr-2" />
+							Download
+						</Button>
+					)}
+				</div>
+			)}
 
 			{/* Preview Area */}
 			{/* <div className="flex-1 overflow-auto p-6 bg-gray-100">

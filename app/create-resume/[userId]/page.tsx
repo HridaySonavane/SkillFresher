@@ -105,7 +105,7 @@ export default function CreateResumePage() {
 
 	return (
 		<div
-			className={`min-h-screen bg-gray-50 dark:bg-gray-950 ${!resumeData && "w-full"}`}
+			className={`min-h-screen flex flex-col w-full items-center justify-center bg-gray-50 dark:bg-gray-950`}
 		>
 			<ResumeHeader
 				currentStep={currentStep}
@@ -118,24 +118,24 @@ export default function CreateResumePage() {
 				}
 			/>
 
-			<div className="flex h-full ">
+			<div className="flex justify-center items-baseline h-full w-full">
 				{/* Left Sidebar */}
-				<CreateResumeSidebar
+				{/* <CreateResumeSidebar
 					currentStep={currentStep}
 					selectedTemplate={selectedTemplate}
 					userId={userId}
 					template={template}
 					loading={loading}
-				/>
+				/> */}
 
 				{/* Main Content */}
-				<div className="flex-1 flex">
+				<div className="flex-1 flex flex-col w-full lg:flex-row">
 					{/* Form/Content Area */}
 					<div
 						className={
 							currentStep === "template"
 								? "w-full"
-								: "w-1/2 border-r border-gray-200"
+								: "w-full lg:w-1/2 border-r border-gray-200"
 						}
 					>
 						{currentStep === "template" && (
@@ -186,7 +186,7 @@ export default function CreateResumePage() {
 
 					{/* Preview Area */}
 					{currentStep !== "template" && (
-						<div className="flex-1 w-fit bg-white">
+						<div className="flex-1 w-full bg-white">
 							{loading ? (
 								<div>Loading template...</div>
 							) : template ? (

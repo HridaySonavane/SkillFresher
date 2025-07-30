@@ -29,5 +29,6 @@ def rewrite():
         print("Gemini API error:", e)
         return jsonify({'error': str(e)}), 500
 
+# The following block is for development only and should not be used in production.
 if __name__ == '__main__':
     app.run(port=5000)

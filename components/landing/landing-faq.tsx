@@ -44,40 +44,35 @@ export function LandingFaq() {
 	};
 
 	return (
-		<section className="h-screen mx-20">
-			<div className="container h-full flex items-center">
-				<div className="h-[60%] flex items-center justify-between gap-12">
-					<div className="flex-1/3 flex flex-col items-center justify-center">
-						<div className="flex flex-col items-center gap-4">
-							<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 mb-4">
-								Frequently Asked Questions
-							</h2>
-							<p className="text-base text-gray-600 dark:text-gray-400">
-								Here are some questions I often get asked about
-								Reactive Resume.
-							</p>
-							<p className="text-base italic text-gray-600 dark:text-gray-400">
-								Unfortunately, this section is available only in
-								English, as I do not want to burden translators
-								with having to translate these large paragraphs
-								of text.
-							</p>
-						</div>
+		<section className="py-12 px-4 sm:px-8 md:px-16 lg:px-20">
+			<div className="container h-full flex flex-col gap-10 md:flex-row items-center md:items-start">
+				<div className="w-full md:w-1/3 flex flex-col items-center justify-center mb-8 md:mb-0">
+					<div className="flex flex-col items-center gap-4">
+						<h2 className="text-2xl text-center sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 mb-4">
+							Frequently Asked Questions
+						</h2>
+						<p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 text-center">
+							Here are some questions I often get asked about
+							Reactive Resume.
+						</p>
+						<p className="text-xs sm:text-base italic text-gray-600 dark:text-gray-400 text-center">
+							Unfortunately, this section is available only in
+							English, as I do not want to burden translators with
+							having to translate these large paragraphs of text.
+						</p>
 					</div>
-					<div className="flex-2/3 flex flex-col justify-center h-full">
-						<Accordion type="single" collapsible>
-							{faqs.map((faq, i) => (
-								<AccordionItem key={i} value={`item-${i + 1}`}>
-									<AccordionTrigger>
-										{faq.name}
-									</AccordionTrigger>
-									<AccordionContent className="text-gray-600 dark:text-gray-400">
-										{faq.desc}
-									</AccordionContent>
-								</AccordionItem>
-							))}
-						</Accordion>
-					</div>
+				</div>
+				<div className="w-full md:w-2/3 flex flex-col justify-center h-full">
+					<Accordion type="single" collapsible>
+						{faqs.map((faq, i) => (
+							<AccordionItem key={i} value={`item-${i + 1}`}>
+								<AccordionTrigger>{faq.name}</AccordionTrigger>
+								<AccordionContent className="text-gray-600 dark:text-gray-400">
+									{faq.desc}
+								</AccordionContent>
+							</AccordionItem>
+						))}
+					</Accordion>
 				</div>
 			</div>
 		</section>

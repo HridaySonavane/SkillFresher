@@ -9,7 +9,7 @@ import { LandingShowcase } from "@/components/landing/landing-showcase";
 
 export default function Home() {
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-screen ">
 			<LandingHeader />
 			<LandingHero />
 			<LandingShowcase />

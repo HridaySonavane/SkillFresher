@@ -31,9 +31,9 @@ export function LandingHero() {
 				<div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-purple-50/50 to-transparent rounded-full blur-3xl opacity-70" />
 			</div> */}
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
 						{/* Left Column - Content */}
-						<div className="space-y-8">
+						<div className="space-y-8 z-10">
 							{/* Version Badge */}
 							<div className="flex items-center gap-2">
 								<Badge
@@ -119,7 +119,7 @@ export function LandingHero() {
 							</div>
 						</div>
 						{/* Right Column - Resume Preview */}
-						<div className="absolute top-auto right-0 translate-x-72 h-[70%] aspect-video drop-shadow-2xl drop-shadow-gray-500 dark:drop-shadow-stone-800 rounded-lg">
+						<div className="mt-8 lg:mt-0 w-full flex justify-center lg:block lg:absolute lg:static top-auto right-0 lg:translate-x-72 lg:w-[600px] lg:h-[400px] xl:w-[700px] xl:h-[500px] h-[250px] sm:h-[350px] md:h-[400px] lg:h-[400px] aspect-video drop-shadow-2xl drop-shadow-gray-500 dark:drop-shadow-stone-800 rounded-lg">
 							<CardContainer
 								className="w-full h-full"
 								containerClassName="w-full h-full py-0"
@@ -137,6 +137,7 @@ export function LandingHero() {
 											alt="photo"
 											width={1200}
 											height={1200}
+											className="w-full h-full object-contain"
 										/>
 									</CardItem>
 								</CardBody>
