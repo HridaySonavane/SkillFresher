@@ -10,6 +10,7 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY", "AIzaSyBJKGg5yx8IncYDoI3BCjJ
 @app.route('/rewrite', methods=['POST'])
 def rewrite():
     data = request.json
+    print("Received data:", data)
     text = data.get('text', '')
     if not text:
         return jsonify({'error': 'No text provided'}), 400
@@ -31,4 +32,4 @@ def rewrite():
 
 # The following block is for development only and should not be used in production.
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(host="0.0.0.0", port=5000)
