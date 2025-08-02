@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type NextRequest, NextResponse } from "next/server"
-import { stripe } from "@/lib/stripe/stripe-config"
+import { stripe } from "@/lib/stripe/stripe-server"
 import { supabase } from "@/lib/auth/supabase-client"
 
 export async function POST(request: NextRequest) {
